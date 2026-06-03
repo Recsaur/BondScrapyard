@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbtam68oobejr"]
+
+[ext_resource type="Texture2D" uid="uid://ba5xwdoxwbj8x" path="res://Assets/icon.svg" id="1_3etf2"]
+[ext_resource type="Script" uid="uid://b4fshld4hxvby" path="res://Scenes/Characters/player.gd" id="1_40svl"]
+[ext_resource type="Script" uid="uid://by66a3al450i4" path="res://Scenes/Characters/kick.gd" id="3_al8ar"]
+[ext_resource type="PackedScene" uid="uid://cdrm74j14lltn" path="res://Scenes/pistol.tscn" id="4_gy20a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40svl"]
+size = Vector2(38, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_al8ar"]
+size = Vector2(40, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy20a"]
+size = Vector2(58.5, 77.5)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_40svl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_40svl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("1_3etf2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_al8ar")
+
+[node name="FacingPivot" type="Node2D" parent="."]
+rotation = 3.1415927
+
+[node name="Kick" type="Area2D" parent="FacingPivot"]
+script = ExtResource("3_al8ar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FacingPivot/Kick"]
+position = Vector2(65, -7.6293945e-06)
+shape = SubResource("RectangleShape2D_gy20a")
+disabled = true
+
+[node name="Timer" type="Timer" parent="FacingPivot/Kick"]
+wait_time = 0.35
+one_shot = true
+
+[node name="Pistol" parent="." instance=ExtResource("4_gy20a")]
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="FacingPivot/Kick" to="FacingPivot/Kick" method="_on_body_entered"]

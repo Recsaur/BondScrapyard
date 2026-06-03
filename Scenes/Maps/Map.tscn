@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3u04qmglnotl"]
+
+[ext_resource type="Texture2D" uid="uid://bcai3srboi5hi" path="res://Assets/grass.jpg" id="1_d78u7"]
+[ext_resource type="PackedScene" uid="uid://dbtam68oobejr" path="res://Scenes/Characters/player.tscn" id="2_sqve8"]
+[ext_resource type="PackedScene" uid="uid://epygy31n2b8a" path="res://Scenes/Characters/enemy.tscn" id="3_1ayp6"]
+
+[node name="Map" type="Node2D"]
+
+[node name="Grass" type="Sprite2D" parent="."]
+position = Vector2(575, 320.125)
+scale = Vector2(4.210909, 3.6270492)
+texture = ExtResource("1_d78u7")
+
+[node name="Player" parent="." instance=ExtResource("2_sqve8")]
+position = Vector2(308, 203)
+
+[node name="Enemy" parent="." instance=ExtResource("3_1ayp6")]
+position = Vector2(456, 336)

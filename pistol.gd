@@ -1,0 +1,22 @@
+extends Node2D
+
+var Bullet_path = preload("res://Scenes/Characters/bullet.tscn")
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+func _physics_process(delta: float) -> void:
+	look_at(get_global_mouse_position())
+	if Input.is_action_just_pressed("Shoot"):
+		Shoot()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func Shoot():
+	var bullet = Bullet_path.instantiate()
+	bullet.position = $Marker2D.global_position
+	bullet.rotation = $Marker2D.global_rotation
+	bullet.target_position = (get_global_mouse_position() - $Marker2D.global_position).normalized()
+	GameStuff.add_child(bullet)
