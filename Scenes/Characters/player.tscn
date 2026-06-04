@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbtam68oobejr"]
+[gd_scene load_steps=9 format=3 uid="uid://dbtam68oobejr"]
 
 [ext_resource type="Texture2D" uid="uid://ba5xwdoxwbj8x" path="res://Assets/icon.svg" id="1_3etf2"]
 [ext_resource type="Script" uid="uid://b4fshld4hxvby" path="res://Scenes/Characters/player.gd" id="1_40svl"]
 [ext_resource type="Script" uid="uid://by66a3al450i4" path="res://Scenes/Characters/kick.gd" id="3_al8ar"]
 [ext_resource type="PackedScene" uid="uid://cdrm74j14lltn" path="res://Scenes/pistol.tscn" id="4_gy20a"]
+[ext_resource type="Script" uid="uid://cfj706r4qstwm" path="res://Scenes/Characters/label.gd" id="5_cqrjx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40svl"]
 size = Vector2(38, 36)
@@ -50,6 +51,14 @@ wait_time = 0.35
 one_shot = true
 
 [node name="Pistol" parent="." instance=ExtResource("4_gy20a")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -33.0
+offset_top = -47.0
+offset_right = 74.0
+offset_bottom = -24.0
+text = "Pistol Ammo: "
+script = ExtResource("5_cqrjx")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="FacingPivot/Kick" to="FacingPivot/Kick" method="_on_body_entered"]

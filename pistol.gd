@@ -7,7 +7,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
-	if Input.is_action_just_pressed("Shoot"):
+	if Input.is_action_just_pressed("Shoot") and GameTracker.Pistol_ammo > 0:
 		Shoot()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 
 func Shoot():
 	var bullet = Bullet_path.instantiate()
+	GameTracker.Pistol_ammo -= 1
 	bullet.position = $Marker2D.global_position
 	bullet.rotation = $Marker2D.global_rotation
 	bullet.target_position = (get_global_mouse_position() - $Marker2D.global_position).normalized()

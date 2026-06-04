@@ -8,13 +8,23 @@ var KB_Length = 25.0
 var Kick_Duration = 0.1
 var Kick_Cooldown = 0.35
 
+var Pistol_path = preload("res://Scenes/pistol.tscn")
+var Shotgun_path = preload("res://Scenes/Shotgun.tscn")
+
+enum Weapons {
+	Pistol,
+	Shotgun
+}
+
+var Weapon = Weapons.Pistol
+
+var Current_weapon = Weapons
+
 @onready var Kick_Collision = $FacingPivot/Kick/CollisionShape2D
 
 
 func _physics_process(delta: float) -> void:
 	GameTracker.player_pos = position
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("left", "right", "up", "down")
 	position += KB * delta
 	KB = KB.move_toward(Vector2.ZERO, KB_Length)
@@ -27,7 +37,32 @@ func _physics_process(delta: float) -> void:
 		Kick_Collision.disabled = true
 		$FacingPivot/Kick/Timer.start()
 	
-	
+	#Weapon Switching but liek only left right keybindd
+	if Input.is_action_just_pressed("SwitchWeaponLeft"):
+		Current_weapon = Weapons.Pistol
+		WeaponSwitching()
+		
+	elif Input.is_action_just_pressed("SwitchWeaponRight"):
+		Current_weapon = Weapons.Shotgun
+		WeaponSwitching()
+
+
+func WeaponSwitching():
+	if Current_weapon == Weapons.Pistol and not has_node("Pistol"):
+		var Pistol = Pistol_path.instantiate()
+		add_child(Pistol)
+		var shotgun = get_node("Shotgun")
+		shotgun.queue_free()
+		print("Pistol")
+		
+	if Current_weapon == Weapons.Shotgun and not has_node("Shotgun"):
+		var Shotgun = Shotgun_path.instantiate()
+		add_child(Shotgun)
+		var pistol = get_node("Pistol")
+		pistol.queue_free()
+		print("Shotguna")
+	print("AGHAGHHA")
+
 func _process(delta: float) -> void:
 	$FacingPivot.look_at(get_global_mouse_position())
 	

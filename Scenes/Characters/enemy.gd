@@ -12,7 +12,6 @@ func _physics_process(delta: float) -> void:
 	#use for maybe collecting items
 	if Health <= 0:
 		queue_free()
-	
 	position += KB * delta
 	KB = KB.move_toward(Vector2.ZERO, KB_Length)
 	position = Vector2(move_toward(position.x, player_pos.x, Increments),move_toward(position.y, player_pos.y, Increments))
