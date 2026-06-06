@@ -45,6 +45,9 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("SwitchWeaponRight"):
 		Current_weapon = Weapons.Shotgun
 		WeaponSwitching()
+		
+	if GameTracker.player_health <= 0.0:
+		queue_free()
 
 
 func WeaponSwitching():
@@ -73,6 +76,7 @@ func Apply_Knockback(KB_Source, KB_Strength):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy_Normal"):
 		print("IS IN")
+		GameTracker.player_health -= 25
 		Apply_Knockback(body.position,750)
 		
 

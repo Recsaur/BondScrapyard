@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://ixnccu8tdqr4"]
+
+[ext_resource type="Script" uid="uid://c07byh8lw40qq" path="res://player_ui.gd" id="1_ohrjl"]
+
+[node name="PlayerHUD" type="CanvasLayer"]
+script = ExtResource("1_ohrjl")
+
+[node name="PistolAmmo" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Pistol Ammo"
+
+[node name="ShotgunAmmo" type="Label" parent="."]
+offset_top = 23.0
+offset_right = 120.0
+offset_bottom = 46.0
+text = "Shotgun Ammo"
+
+[node name="Currentweapon" type="Label" parent="."]
+offset_top = 47.0
+offset_right = 128.0
+offset_bottom = 70.0
+text = "Current Weapon"
+
+[node name="PlayerHealth" type="Label" parent="."]
+offset_top = 71.0
+offset_right = 52.0
+offset_bottom = 94.0
+text = "Health"

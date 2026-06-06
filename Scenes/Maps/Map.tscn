@@ -7,6 +7,7 @@
 [node name="Map" type="Node2D"]
 
 [node name="Grass" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(575, 320.125)
 scale = Vector2(4.210909, 3.6270492)
 texture = ExtResource("1_d78u7")

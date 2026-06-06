@@ -9,12 +9,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
-	if Input.is_action_just_pressed("Shoot"):
+	if Input.is_action_just_pressed("Shoot") and GameTracker.Shotgun_ammo > 0:
 		BurstShot()
 
 func BurstShot():
 	var spread = deg_to_rad(Spread_angle) / 2.0
 	var Target_pos = (get_global_mouse_position() - $Marker2D.global_position).normalized()
+	GameTracker.Shotgun_ammo -= 1
 	for Buck in range(Burst_num):
 		var bullet = Bullet_path.instantiate()
 		bullet.position = $Marker2D.global_position
