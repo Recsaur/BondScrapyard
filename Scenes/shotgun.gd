@@ -3,6 +3,7 @@ extends Node2D
 var Bullet_path = preload("res://Scenes/pellet.tscn")
 var Burst_num = 3
 var Spread_angle = 25.0
+var Knockback = 750.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -23,3 +24,5 @@ func BurstShot():
 		bullet.rotation = $Marker2D.global_rotation
 		bullet.target_position = Target_pos.rotated(Random_dist)
 		GameStuff.add_child(bullet)
+	get_parent().Apply_Knockback($Marker2D.global_position,Knockback)
+	GameTracker.emit_signal("Action",15.0)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://du0hhw1pdpqw6"]
+
+[ext_resource type="Script" uid="uid://c5ti6sku8ggsa" path="res://main_menu.gd" id="1_28flt"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_28flt")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Bond's
+Scrapyard"
+
+[node name="Play" type="Button" parent="."]
+offset_left = 356.0
+offset_top = 332.0
+offset_right = 757.0
+offset_bottom = 479.0
+text = "Start"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

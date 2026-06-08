@@ -10,6 +10,8 @@ size = Vector2(12, 3.5)
 size = Vector2(14, 4)
 
 [node name="Pellet" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_3383t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
