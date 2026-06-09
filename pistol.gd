@@ -2,18 +2,15 @@ extends Node2D
 
 var Bullet_path = preload("res://Scenes/Characters/bullet.tscn")
 var Knockback = 0.0
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready() -> void:
 	pass # Replace with function body.
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Shoot") and GameTracker.Pistol_ammo > 0:
 		Shoot()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func Shoot():
 	var bullet = Bullet_path.instantiate()

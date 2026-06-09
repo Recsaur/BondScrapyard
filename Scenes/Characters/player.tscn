@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://dbtam68oobejr"]
 
-[ext_resource type="Texture2D" uid="uid://ba5xwdoxwbj8x" path="res://Assets/icon.svg" id="1_3etf2"]
 [ext_resource type="Script" uid="uid://b4fshld4hxvby" path="res://Scenes/Characters/player.gd" id="1_40svl"]
+[ext_resource type="Texture2D" uid="uid://lj5601huqlet" path="res://Assets/Corgi.jpg" id="2_utp2y"]
 [ext_resource type="Script" uid="uid://by66a3al450i4" path="res://Scenes/Characters/kick.gd" id="3_al8ar"]
 [ext_resource type="Script" uid="uid://chpo013bhbh7q" path="res://Scenes/Characters/camera_2d.gd" id="3_utp2y"]
 [ext_resource type="PackedScene" uid="uid://cdrm74j14lltn" path="res://Scenes/pistol.tscn" id="4_gy20a"]
-[ext_resource type="Script" uid="uid://cfj706r4qstwm" path="res://Scenes/Characters/label.gd" id="5_cqrjx"]
 [ext_resource type="PackedScene" uid="uid://ixnccu8tdqr4" path="res://Scenes/player_ui.tscn" id="6_khnq4"]
+[ext_resource type="PackedScene" uid="uid://whis2n7y48kv" path="res://Scenes/BuildingHUD.tscn" id="8_gdgf0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40svl"]
 size = Vector2(38, 36)
@@ -17,15 +17,15 @@ size = Vector2(40, 38)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gy20a"]
 size = Vector2(58.5, 77.5)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_40svl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_40svl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("1_3etf2")
+scale = Vector2(0.09583474, 0.09583474)
+texture = ExtResource("2_utp2y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
@@ -55,16 +55,10 @@ one_shot = true
 
 [node name="Pistol" parent="." instance=ExtResource("4_gy20a")]
 
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -33.0
-offset_top = -47.0
-offset_right = 74.0
-offset_bottom = -24.0
-text = "Pistol Ammo: "
-script = ExtResource("5_cqrjx")
-
 [node name="PlayerUI" parent="." instance=ExtResource("6_khnq4")]
+
+[node name="Building_UI" parent="." instance=ExtResource("8_gdgf0")]
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="FacingPivot/Kick" to="FacingPivot/Kick" method="_on_body_entered"]

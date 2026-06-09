@@ -6,24 +6,31 @@
 script = ExtResource("1_ohrjl")
 
 [node name="PistolAmmo" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_top = 527.0
+offset_right = 98.0
+offset_bottom = 550.0
 text = "Pistol Ammo"
 
 [node name="ShotgunAmmo" type="Label" parent="."]
-offset_top = 23.0
+offset_top = 550.0
 offset_right = 120.0
-offset_bottom = 46.0
+offset_bottom = 573.0
 text = "Shotgun Ammo"
 
 [node name="Currentweapon" type="Label" parent="."]
-offset_top = 47.0
+offset_top = 574.0
 offset_right = 128.0
-offset_bottom = 70.0
+offset_bottom = 597.0
 text = "Current Weapon"
 
 [node name="PlayerHealth" type="Label" parent="."]
-offset_top = 71.0
+offset_top = 598.0
 offset_right = 52.0
-offset_bottom = 94.0
+offset_bottom = 621.0
 text = "Health"
+
+[node name="Scraps" type="Label" parent="."]
+offset_top = 621.0
+offset_right = 51.0
+offset_bottom = 644.0
+text = "Scraps"

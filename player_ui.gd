@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var ShotgunAmmo = $ShotgunAmmo
 @onready var CurrentWeapon = $Currentweapon
 @onready var PlayerHealth = $PlayerHealth
+@onready var Scraps = $Scraps
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,4 +15,5 @@ func _process(delta: float) -> void:
 	ShotgunAmmo.text = str("Shotgun Ammo: ", GameTracker.Shotgun_ammo)
 	CurrentWeapon.text = str("Current Weapon: ", get_parent().Current_weapon)
 	PlayerHealth.text = str("Health: ", GameTracker.player_health)
+	Scraps.text = str("Scraps: ", GameTracker.scrap_amt)
 	pass

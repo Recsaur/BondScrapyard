@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://whis2n7y48kv"]
+
+[ext_resource type="Script" uid="uid://chrpjdlo56ad0" path="res://Scenes/building_hud.gd" id="1_16qb0"]
+[ext_resource type="Texture2D" uid="uid://ba5xwdoxwbj8x" path="res://Assets/icon.svg" id="2_vqi67"]
+
+[node name="Building_HUD" type="CanvasLayer"]
+script = ExtResource("1_16qb0")
+
+[node name="NS" type="CanvasLayer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="NS"]
+
+[node name="Normal_sentry" type="Label" parent="NS"]
+offset_left = 33.0
+offset_top = 4.0
+offset_right = 233.0
+offset_bottom = 27.0
+text = "1 - Normal Sentry (x3 Scraps) "
+
+[node name="Sprite2D" type="Sprite2D" parent="NS"]
+position = Vector2(16, 16)
+scale = Vector2(0.22460932, 0.22460932)
+texture = ExtResource("2_vqi67")
+
+[node name="M" type="CanvasLayer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="M"]
+position = Vector2(0, -31)
+
+[node name="Mine" type="Label" parent="M"]
+offset_left = 33.0
+offset_top = 36.0
+offset_right = 182.0
+offset_bottom = 59.0
+text = "2 - Mine (x3 Scraps)"
+
+[node name="Sprite2D" type="Sprite2D" parent="M"]
+position = Vector2(16, 47)
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("2_vqi67")
+
+[node name="HS" type="CanvasLayer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="HS"]
+position = Vector2(0, 31)
+
+[node name="Homing_sentry" type="Label" parent="HS"]
+offset_left = 33.0
+offset_top = 67.0
+offset_right = 258.0
+offset_bottom = 90.0
+text = "3 - Homing Sentry (x5 Scraps)"
+
+[node name="Sprite2D" type="Sprite2D" parent="HS"]
+position = Vector2(16, 78)
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("2_vqi67")

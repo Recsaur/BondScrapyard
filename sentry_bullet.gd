@@ -1,8 +1,9 @@
 extends CharacterBody2D
 var target_position
 var Bullet_Speed = 1000
-var dmg = 15
+var dmg = GameTracker.Normal_sentry_dmg
 var KB = 750
+var Sentry_from = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -16,7 +17,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("Apply_Knockback"):
 		if body.is_in_group("Enemy_Normal"):
 			print(body)
-			body.Apply_Knockback(GameTracker.player_pos,KB)
+			body.Apply_Knockback(Sentry_from.position,KB)
 			body.Health -= dmg
 			queue_free()
 

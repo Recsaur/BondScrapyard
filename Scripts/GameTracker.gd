@@ -6,4 +6,5 @@ var scrap_amt = 0
 var Pistol_ammo = 1000
 var Shotgun_ammo = 50
 
+var Normal_sentry_dmg = 15
 signal Action(value : float)

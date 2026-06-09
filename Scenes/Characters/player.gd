@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 const JUMP_VELOCITY = -400.0
+const DASH_SPEED = 1500
 var KB = Vector2.ZERO
 var KB_Length = 25.0
 var Kick_Duration = 0.1
@@ -19,7 +20,7 @@ enum Weapons {
 var Weapon = Weapons.Pistol
 
 var Current_weapon = Weapons
-
+var Build_mode = false
 @onready var Kick_Collision = $FacingPivot/Kick/CollisionShape2D
 
 
@@ -29,7 +30,30 @@ func _physics_process(delta: float) -> void:
 	position += KB * delta
 	KB = KB.move_toward(Vector2.ZERO, KB_Length)
 	velocity = direction * SPEED
+	
+	if Input.is_action_just_pressed("Dash"):
+		Dash(direction,500)
+		
+	if Input.is_action_just_pressed("Building"):
+		var BHUD = $Building_UI
+		if not BHUD.visible:
+			BHUD.show()
+			Build_mode = true
+			$Building_UI/NS.show()
+			$Building_UI/M.show()
+			$Building_UI/HS.show()
+			
+		else:
+			BHUD.hide()
+			Build_mode = false
+			$Building_UI/NS.hide()
+			$Building_UI/M.hide()
+			$Building_UI/HS.hide()
+		print("OPEHEN")
 	move_and_slide()
+	
+	if Build_mode:
+		Buildings()
 	
 	if Input.is_action_just_pressed("Kick") and $FacingPivot/Kick/Timer.is_stopped():
 		Kick_Collision.disabled = false
@@ -49,6 +73,19 @@ func _physics_process(delta: float) -> void:
 	if GameTracker.player_health <= 0.0:
 		queue_free()
 
+func Buildings():
+	if Input.is_action_just_pressed("1_Build"):
+		$Building_UI.Chosen_1 = true
+		$Building_UI.Chosen_2 = false
+		$Building_UI.Chosen_3 = false
+	if Input.is_action_just_pressed("2_Build"):
+		$Building_UI.Chosen_2 = true
+		$Building_UI.Chosen_1 = false
+		$Building_UI.Chosen_3 = false
+	if Input.is_action_just_pressed("3_Build"):
+		$Building_UI.Chosen_3 = true
+		$Building_UI.Chosen_1 = false
+		$Building_UI.Chosen_2 = false
 
 func WeaponSwitching():
 	if Current_weapon == Weapons.Pistol and not has_node("Pistol"):
@@ -73,13 +110,14 @@ func Apply_Knockback(KB_Source, KB_Strength):
 	var KB_dir = KB_Source.direction_to(global_position)
 	KB = KB_dir * KB_Strength
 
+func Dash(dir,strength):
+	KB = dir * strength
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy_Normal"):
 		print("IS IN")
 		GameTracker.player_health -= 25
 		Apply_Knockback(body.position,750)
-		
-
 		
 	#if body.has_method("Apply_Knockback"):
 		#body.Apply_Knockback(global_position,500)

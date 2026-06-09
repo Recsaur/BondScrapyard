@@ -6,8 +6,10 @@
 script = ExtResource("1_28flt")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 522.0
+offset_top = 172.0
+offset_right = 600.0
+offset_bottom = 221.0
 text = "Bond's
 Scrapyard"
 
