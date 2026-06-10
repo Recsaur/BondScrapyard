@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdrm74j14lltn"]
+[gd_scene load_steps=4 format=3 uid="uid://cdrm74j14lltn"]
 
 [ext_resource type="Script" uid="uid://crdi3p7kw6od1" path="res://pistol.gd" id="1_v21tj"]
+[ext_resource type="Texture2D" uid="uid://8x4pn4fwdccs" path="res://Assets/Pistol.webp" id="2_mix3b"]
 [ext_resource type="Texture2D" uid="uid://ba5xwdoxwbj8x" path="res://Assets/icon.svg" id="2_ui64p"]
 
 [node name="Pistol" type="Node2D"]
@@ -9,10 +10,10 @@ script = ExtResource("1_v21tj")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(37, 0)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Marker2D"]
+[node name="Sprite2D2" type="Sprite2D" parent="Marker2D" groups=["Weapon"]]
 position = Vector2(-1.9073486e-06, 0)
-scale = Vector2(0.023206964, 0.023206964)
-texture = ExtResource("2_ui64p")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_mix3b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3.8146973e-06, 0)

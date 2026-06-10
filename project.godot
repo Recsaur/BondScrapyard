@@ -24,6 +24,11 @@ GameStuff="*res://Scenes/game_stuff.tscn"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[global_group]
+
+Weapon=""
+Building=""
+
 [input]
 
 left={

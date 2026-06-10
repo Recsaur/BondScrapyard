@@ -42,13 +42,27 @@ func _physics_process(delta: float) -> void:
 			$Building_UI/NS.show()
 			$Building_UI/M.show()
 			$Building_UI/HS.show()
-			
+			if has_node("Pistol"):
+				var pistol = get_node("Pistol")
+				pistol.queue_free()
+			if has_node("Shotgun"):
+				var shotgun = get_node("Shotgun")
+				shotgun.queue_free()
 		else:
 			BHUD.hide()
 			Build_mode = false
 			$Building_UI/NS.hide()
 			$Building_UI/M.hide()
 			$Building_UI/HS.hide()
+			$Building_UI.set_chosen_build(0)
+			for Build in get_tree().get_nodes_in_group("Building"):
+				Build.queue_free()
+			if GameTracker.Last_equipped == 0:
+				var pistol = Pistol_path.instantiate()
+				add_child(pistol)
+			if GameTracker.Last_equipped == 1:
+				var shotgun = Shotgun_path.instantiate()
+				add_child(shotgun)
 		print("OPEHEN")
 	move_and_slide()
 	
@@ -62,11 +76,11 @@ func _physics_process(delta: float) -> void:
 		$FacingPivot/Kick/Timer.start()
 	
 	#Weapon Switching but liek only left right keybindd
-	if Input.is_action_just_pressed("SwitchWeaponLeft"):
+	if Input.is_action_just_pressed("SwitchWeaponLeft") and not Build_mode:
 		Current_weapon = Weapons.Pistol
 		WeaponSwitching()
 		
-	elif Input.is_action_just_pressed("SwitchWeaponRight"):
+	elif Input.is_action_just_pressed("SwitchWeaponRight") and not Build_mode:
 		Current_weapon = Weapons.Shotgun
 		WeaponSwitching()
 		
@@ -75,17 +89,11 @@ func _physics_process(delta: float) -> void:
 
 func Buildings():
 	if Input.is_action_just_pressed("1_Build"):
-		$Building_UI.Chosen_1 = true
-		$Building_UI.Chosen_2 = false
-		$Building_UI.Chosen_3 = false
+		$Building_UI.set_chosen_build(1)
 	if Input.is_action_just_pressed("2_Build"):
-		$Building_UI.Chosen_2 = true
-		$Building_UI.Chosen_1 = false
-		$Building_UI.Chosen_3 = false
+		$Building_UI.set_chosen_build(2)
 	if Input.is_action_just_pressed("3_Build"):
-		$Building_UI.Chosen_3 = true
-		$Building_UI.Chosen_1 = false
-		$Building_UI.Chosen_2 = false
+		$Building_UI.set_chosen_build(3)
 
 func WeaponSwitching():
 	if Current_weapon == Weapons.Pistol and not has_node("Pistol"):
@@ -93,6 +101,7 @@ func WeaponSwitching():
 		add_child(Pistol)
 		var shotgun = get_node("Shotgun")
 		shotgun.queue_free()
+		GameTracker.Last_equipped = 0
 		print("Pistol")
 		
 	if Current_weapon == Weapons.Shotgun and not has_node("Shotgun"):
@@ -100,6 +109,7 @@ func WeaponSwitching():
 		add_child(Shotgun)
 		var pistol = get_node("Pistol")
 		pistol.queue_free()
+		GameTracker.Last_equipped = 1
 		print("Shotguna")
 	print("AGHAGHHA")
 

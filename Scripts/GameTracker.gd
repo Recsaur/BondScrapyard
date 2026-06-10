@@ -8,3 +8,5 @@ var Shotgun_ammo = 50
 
 var Normal_sentry_dmg = 15
 signal Action(value : float)
+
+var Last_equipped = 0

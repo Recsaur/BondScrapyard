@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw181chqlxycq"]
+
+[ext_resource type="Script" uid="uid://b0qlaac85ihl6" path="res://Scenes/build_preview.gd" id="1_crh8s"]
+[ext_resource type="Texture2D" uid="uid://btyp4hnnxy4mr" path="res://Assets/sentry.jpg" id="3_t7olq"]
+
+[node name="Build_Preview" type="Node2D" groups=["Building"]]
+scale = Vector2(0.6311678, 0.6311678)
+script = ExtResource("1_crh8s")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+position = Vector2(191.70813, 0)
+scale = Vector2(0.10675336, 0.10675336)
+texture = ExtResource("3_t7olq")

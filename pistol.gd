@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
-	if Input.is_action_just_pressed("Shoot") and GameTracker.Pistol_ammo > 0:
+	if Input.is_action_pressed("Shoot") and GameTracker.Pistol_ammo > 0:
 		Shoot()
 
 func Shoot():

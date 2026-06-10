@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ba5xwdoxwbj8x" path="res://Assets/icon.svg" id="2_vqi67"]
 
 [node name="Building_HUD" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_16qb0")
 
 [node name="NS" type="CanvasLayer" parent="."]
@@ -49,7 +50,7 @@ offset_left = 33.0
 offset_top = 67.0
 offset_right = 258.0
 offset_bottom = 90.0
-text = "3 - Homing Sentry (x5 Scraps)"
+text = "3 - Shotgun Bullets (x1 Scrap = 1x Bullet)"
 
 [node name="Sprite2D" type="Sprite2D" parent="HS"]
 position = Vector2(16, 78)
