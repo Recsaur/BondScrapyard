@@ -2,14 +2,14 @@ extends Node2D
 
 var Bullet_path = preload("res://Scenes/Characters/bullet.tscn")
 var Knockback = 0.0
-
+var Shootable = true
 
 func _ready() -> void:
 	pass # Replace with function body.
 
 func _physics_process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
-	if Input.is_action_pressed("Shoot") and GameTracker.Pistol_ammo > 0:
+	if Input.is_action_pressed("Shoot") and GameTracker.Pistol_ammo > 0 and Shootable:
 		Shoot()
 
 func Shoot():
@@ -20,3 +20,10 @@ func Shoot():
 	bullet.target_position = (get_global_mouse_position() - $Marker2D.global_position).normalized()
 	GameStuff.add_child(bullet)
 	get_parent().Apply_Knockback($Marker2D.global_position,Knockback)
+	Shootable = false
+	$FireRate.start()
+
+
+func _on_fire_rate_timeout() -> void:
+	Shootable = true
+	pass # Replace with function body.

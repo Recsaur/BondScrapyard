@@ -8,7 +8,7 @@ var KB = Vector2.ZERO
 var KB_Length = 25.0
 var Kick_Duration = 0.1
 var Kick_Cooldown = 0.35
-
+var invuln = false
 var Pistol_path = preload("res://Scenes/pistol.tscn")
 var Shotgun_path = preload("res://Scenes/Shotgun.tscn")
 
@@ -19,10 +19,13 @@ enum Weapons {
 
 var Weapon = Weapons.Pistol
 
-var Current_weapon = Weapons
+var Current_weapon = Weapons.Pistol
 var Build_mode = false
 @onready var Kick_Collision = $FacingPivot/Kick/CollisionShape2D
 
+
+#Enemy damgese
+var NormalEnemy_dmg = 15
 
 func _physics_process(delta: float) -> void:
 	GameTracker.player_pos = position
@@ -77,12 +80,16 @@ func _physics_process(delta: float) -> void:
 	
 	#Weapon Switching but liek only left right keybindd
 	if Input.is_action_just_pressed("SwitchWeaponLeft") and not Build_mode:
-		Current_weapon = Weapons.Pistol
-		WeaponSwitching()
+		if Current_weapon == Weapons.Pistol:
+			Current_weapon = Weapons.Shotgun
+			WeaponSwitching()
+		if Current_weapon == Weapons.Shotgun:
+			Current_weapon = Weapons.Pistol
+			WeaponSwitching()
 		
-	elif Input.is_action_just_pressed("SwitchWeaponRight") and not Build_mode:
-		Current_weapon = Weapons.Shotgun
-		WeaponSwitching()
+	#elif Input.is_action_just_pressed("SwitchWeaponRight") and not Build_mode:
+	#	Current_weapon = Weapons.Shotgun
+	#	WeaponSwitching()
 		
 	if GameTracker.player_health <= 0.0:
 		queue_free()
@@ -114,6 +121,7 @@ func WeaponSwitching():
 	print("AGHAGHHA")
 
 func _process(delta: float) -> void:
+	print("LIFEAOKAY?",invuln)
 	$FacingPivot.look_at(get_global_mouse_position())
 	
 func Apply_Knockback(KB_Source, KB_Strength):
@@ -124,11 +132,18 @@ func Dash(dir,strength):
 	KB = dir * strength
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemy_Normal"):
+	if body.is_in_group("Enemy_Normal") and not invuln:
 		print("IS IN")
-		GameTracker.player_health -= 15
+		GameTracker.player_health -= NormalEnemy_dmg
 		Apply_Knockback(body.position,750)
+		invuln = true
+		$Invuln.start()
 		
 	#if body.has_method("Apply_Knockback"):
 		#body.Apply_Knockback(global_position,500)
 	#pass # Replace with function body.
+
+
+func _on_invuln_timeout() -> void:
+	invuln = false
+	pass # Replace with function body.
