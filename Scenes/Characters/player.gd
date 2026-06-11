@@ -126,7 +126,7 @@ func Dash(dir,strength):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy_Normal"):
 		print("IS IN")
-		GameTracker.player_health -= 25
+		GameTracker.player_health -= 15
 		Apply_Knockback(body.position,750)
 		
 	#if body.has_method("Apply_Knockback"):

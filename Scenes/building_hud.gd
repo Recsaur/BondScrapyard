@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var HS = $HS
 
 const  NS_path = preload("res://Scenes/build_preview.tscn")
+const CR_path = preload("res://Scenes/crafting_preview.tscn")
 const M_path = null
 
 var current_chosen_build : int = 0
@@ -35,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		$HS/CanvasModulate.color = Color(0.796, 0.173, 0.141, 1.0)
 
+
 func set_chosen_build(build_num):
 	print("HERES IS IT ITS IS", build_num)
 	if current_chosen_build == build_num:
@@ -61,6 +63,10 @@ func set_chosen_build(build_num):
 				$NS/CanvasModulate.color = Color(1.0, 1.0, 1.0, 1.0)
 		3:
 			if GameTracker.scrap_amt >= 1:
+				for Build in get_tree().get_nodes_in_group("Building"):
+					Build.queue_free()
+				var CR_preview = CR_path.instantiate()
+				get_parent().add_child(CR_preview)
 				$HS/CanvasModulate.color = Color(2.454, 2.454, 2.454, 1.0)
 				$NS/CanvasModulate.color = Color(1.0, 1.0, 1.0, 1.0)
 				$M/CanvasModulate.color = Color(1.0, 1.0, 1.0, 1.0)

@@ -1,6 +1,6 @@
 extends Node2D
 
-var Sentry_path = preload("res://Scenes/normal_sentry.tscn")
+var Bullets_path = preload("res://Scenes/bullet_pickup.tscn")
 var Knockback = 0.0
 
 
@@ -14,9 +14,9 @@ func _physics_process(_delta: float) -> void:
 		print('place once')
 
 func PlaceBuild():
-	var Build = Sentry_path.instantiate()
-	Build.global_position = $Pivot/Sprite2D.global_position
-	get_parent().get_parent().add_child(Build)
-	GameTracker.scrap_amt -= 3
-	if GameTracker.scrap_amt < 3:
+	var BulletPick = Bullets_path.instantiate()
+	BulletPick.global_position = $Pivot/Sprite2D.global_position
+	get_parent().get_parent().add_child(BulletPick)
+	GameTracker.scrap_amt -= 1
+	if GameTracker.scrap_amt < 1:
 		queue_free()

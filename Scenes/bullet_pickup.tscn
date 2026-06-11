@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5hwe36vfs2eg"]
+
+[ext_resource type="Texture2D" uid="uid://ds8cstm3kql4o" path="res://Assets/buck.jpg" id="1_pap1u"]
+[ext_resource type="Script" uid="uid://imt6tqyf1pxc" path="res://Scenes/bullet_pickup.gd" id="1_r7fic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxcbq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgrn1"]
+
+[node name="Bullet_Pickup" type="Node2D"]
+scale = Vector2(0.14807001, 0.14807001)
+script = ExtResource("1_r7fic")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pap1u")
+
+[node name="Collect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collect"]
+scale = Vector2(9.483072, 9.483072)
+shape = SubResource("RectangleShape2D_nxcbq")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+scale = Vector2(-50.62695, -50.62695)
+shape = SubResource("CircleShape2D_jgrn1")
+
+[connection signal="body_entered" from="Collect" to="." method="_on_collect_body_entered"]
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]

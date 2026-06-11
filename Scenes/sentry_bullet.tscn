@@ -10,6 +10,8 @@ size = Vector2(12, 3.5)
 size = Vector2(14, 4)
 
 [node name="Sentry_bullet" type="CharacterBody2D" groups=["SentryBullet"]]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_dnxmb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

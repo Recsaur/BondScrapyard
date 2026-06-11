@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwtd4t3djnv1y"]
+
+[ext_resource type="Texture2D" uid="uid://ds8cstm3kql4o" path="res://Assets/buck.jpg" id="1_b3shb"]
+[ext_resource type="Script" uid="uid://c31wmlbvmhis7" path="res://Scenes/crafting_preview.gd" id="1_jpp47"]
+
+[node name="Crafting_preview" type="Node2D" groups=["Building"]]
+script = ExtResource("1_jpp47")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+position = Vector2(58.000015, 0)
+scale = Vector2(0.13617106, 0.13617106)
+texture = ExtResource("1_b3shb")

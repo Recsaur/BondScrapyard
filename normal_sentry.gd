@@ -32,7 +32,7 @@ func Shoot(enemy):
 	var bullet = Bullet_path.instantiate()
 	var target_location = enemy.global_position
 	Can_shoot = false
-	GameTracker.Pistol_ammo -= 1
+	#GameTracker.Pistol_ammo -= 1
 	bullet.Sentry_from = self
 	bullet.global_position = global_position
 	bullet.rotation = enemy.global_rotation
