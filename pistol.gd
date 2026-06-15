@@ -10,8 +10,13 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
-	if Input.is_action_pressed("Shoot") and GameTracker.Pistol_ammo > 0 and Shootable:
+	if Input.is_action_pressed("Shoot") and GameTracker.Paistol_ammo > 0 and Shootable:
 		Shoot()
+	if get_global_mouse_position().x > global_position.x:
+		$Marker2D/Sprite2D2.flip_v = false
+	else:
+		$Marker2D/Sprite2D2.flip_v = true
+
 
 func Shoot():
 	var bullet = Bullet_path.instantiate()

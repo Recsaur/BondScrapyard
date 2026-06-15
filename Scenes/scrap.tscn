@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkhrt"]
 
 [node name="Scrap" type="Node2D"]
-scale = Vector2(0.14257309, 0.14257309)
+scale = Vector2(0.23038313, 0.23038313)
 script = ExtResource("1_nkhrt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

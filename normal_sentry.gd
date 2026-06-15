@@ -15,15 +15,11 @@ func _physics_process(delta: float) -> void:
 		$Sprite2D.look_at(enemy_target.global_position)
 		if Can_shoot:
 			Shoot(enemy_target)
-	if $Sprite2D.rotation_degrees > 90:
-		$Sprite2D.flip_v = true
-	else:
-		$Sprite2D.flip_v = false
-	if $Sprite2D.rotation_degrees > -90:
-		$Sprite2D.flip_v = false
-	else:
-		$Sprite2D.flip_v = true
-	#look_at(Current_target.global_position)
+		if enemy_target.global_position.x > global_position.x:
+			$Sprite2D.flip_v = false
+		else:
+			$Sprite2D.flip_v = true
+		#look_at(Current_target.global_position)
 
 func closest_enemy():
 	var enemies = get_tree().get_nodes_in_group("Enemy_Normal")

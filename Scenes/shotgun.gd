@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var SG_Particles = $GPUParticles2D
 var Bullet_path = preload("res://Scenes/pellet.tscn")
 var Burst_num = 3
 var Spread_angle = 25.0
@@ -12,7 +13,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Shoot") and GameTracker.Shotgun_ammo > 0:
+		$GPUParticles2D.restart()
+		$GPUParticles2D.emitting = true
 		BurstShot()
+	if get_global_mouse_position().x > global_position.x:
+		$Marker2D/Sprite2D2.flip_v = false
+	else:
+		$Marker2D/Sprite2D2.flip_v = true
 
 func BurstShot():
 	var spread = deg_to_rad(Spread_angle) / 2.0

@@ -4,12 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://brj8o0xkxrsr" path="res://Assets/full_turret.png" id="2_crh8s"]
 
 [node name="Build_Preview" type="Node2D" groups=["Building"]]
+modulate = Color(1, 1, 1, 0.5294118)
 scale = Vector2(0.6311678, 0.6311678)
 script = ExtResource("1_crh8s")
 
 [node name="Pivot" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+modulate = Color(1.124813, 1.1140252, 1.468999, 0.898)
 position = Vector2(191.70813, 0)
 scale = Vector2(0.09516715, 0.09516715)
 texture = ExtResource("2_crh8s")
