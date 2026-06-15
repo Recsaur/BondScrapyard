@@ -22,7 +22,7 @@ var Weapon = Weapons.Pistol
 var Current_weapon = Weapons.Pistol
 var Build_mode = false
 @onready var Kick_Collision = $FacingPivot/Kick/CollisionShape2D
-
+@onready var BHUD = $Building_UI
 
 #Enemy damgese
 var NormalEnemy_dmg = 15
@@ -38,7 +38,6 @@ func _physics_process(delta: float) -> void:
 		Dash(direction,500)
 		
 	if Input.is_action_just_pressed("Building"):
-		var BHUD = $Building_UI
 		if not BHUD.visible:
 			BHUD.show()
 			Build_mode = true
@@ -87,9 +86,21 @@ func _physics_process(delta: float) -> void:
 			Current_weapon = Weapons.Pistol
 			WeaponSwitching()
 		
-	#elif Input.is_action_just_pressed("SwitchWeaponRight") and not Build_mode:
-	#	Current_weapon = Weapons.Shotgun
-	#	WeaponSwitching()
+	elif Input.is_action_just_pressed("SwitchWeaponLeft") and Build_mode:
+		BHUD.hide()
+		Build_mode = false
+		$Building_UI/NS.hide()
+		$Building_UI/M.hide()
+		$Building_UI/HS.hide()
+		$Building_UI.set_chosen_build(0)
+		for Build in get_tree().get_nodes_in_group("Building"):
+			Build.queue_free()
+		if GameTracker.Last_equipped == 0:
+			var pistol = Pistol_path.instantiate()
+			add_child(pistol)
+		if GameTracker.Last_equipped == 1:
+			var shotgun = Shotgun_path.instantiate()
+			add_child(shotgun)
 		
 	if GameTracker.player_health <= 0.0:
 		queue_free()
@@ -123,7 +134,7 @@ func WeaponSwitching():
 func _process(delta: float) -> void:
 	print("LIFEAOKAY?",invuln)
 	$FacingPivot.look_at(get_global_mouse_position())
-	
+
 func Apply_Knockback(KB_Source, KB_Strength):
 	var KB_dir = KB_Source.direction_to(global_position)
 	KB = KB_dir * KB_Strength

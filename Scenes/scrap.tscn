@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3p7eigagv28k"]
 
-[ext_resource type="Texture2D" uid="uid://b1fcw42xp6okh" path="res://Assets/scrap.jpg" id="1_itaa7"]
 [ext_resource type="Script" uid="uid://ce8smtgut8jlq" path="res://Scenes/scrap.gd" id="1_nkhrt"]
+[ext_resource type="Texture2D" uid="uid://b1hj8ljex0dj4" path="res://Assets/Scrap.png" id="2_nkhrt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_itaa7"]
 
@@ -12,8 +12,8 @@ scale = Vector2(0.14257309, 0.14257309)
 script = ExtResource("1_nkhrt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.1205491, 1.1205491)
-texture = ExtResource("1_itaa7")
+scale = Vector2(0.7894141, 0.7894141)
+texture = ExtResource("2_nkhrt")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Player"]]
 scale = Vector2(-14.783005, -14.783005)

@@ -6,6 +6,7 @@ var Spread_angle = 25.0
 var Knockback = 750.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	look_at(get_global_mouse_position())
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:

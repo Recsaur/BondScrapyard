@@ -5,6 +5,7 @@ var Knockback = 0.0
 var Shootable = true
 
 func _ready() -> void:
+	look_at(get_global_mouse_position())
 	pass # Replace with function body.
 
 func _physics_process(_delta: float) -> void:
@@ -21,7 +22,7 @@ func Shoot():
 	GameStuff.add_child(bullet)
 	get_parent().Apply_Knockback($Marker2D.global_position,Knockback)
 	Shootable = false
-	$FireRate.start()
+	$FireRate.start(GameTracker.FireratePistol)
 
 
 func _on_fire_rate_timeout() -> void:

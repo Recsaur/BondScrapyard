@@ -10,3 +10,4 @@ var Normal_sentry_dmg = 15
 signal Action(value : float)
 
 var Last_equipped = 0
+var FireratePistol = 0.25

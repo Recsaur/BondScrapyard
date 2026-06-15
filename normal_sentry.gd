@@ -12,9 +12,17 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var enemy_target = closest_enemy()
 	if enemy_target:
-		look_at(enemy_target.global_position)
+		$Sprite2D.look_at(enemy_target.global_position)
 		if Can_shoot:
 			Shoot(enemy_target)
+	if $Sprite2D.rotation_degrees > 90:
+		$Sprite2D.flip_v = true
+	else:
+		$Sprite2D.flip_v = false
+	if $Sprite2D.rotation_degrees > -90:
+		$Sprite2D.flip_v = false
+	else:
+		$Sprite2D.flip_v = true
 	#look_at(Current_target.global_position)
 
 func closest_enemy():

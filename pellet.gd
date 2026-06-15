@@ -2,7 +2,7 @@ extends CharacterBody2D
 var target_position
 var Bullet_Speed = 1000
 var dmg = 25
-var KB = 1250
+var KB = 500
 
 
 func _ready() -> void:
