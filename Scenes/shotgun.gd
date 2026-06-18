@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var SG_Particles = $GPUParticles2D
 var Bullet_path = preload("res://Scenes/pellet.tscn")
-var Burst_num = 3
+var Burst_num = 4
 var Spread_angle = 25.0
 var Knockback = 750.0
 # Called when the node enters the scene tree for the first time.

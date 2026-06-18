@@ -6,7 +6,7 @@ extends CanvasLayer
 
 const  NS_path = preload("res://Scenes/build_preview.tscn")
 const CR_path = preload("res://Scenes/crafting_preview.tscn")
-const M_path = null
+const M_path = preload("res://Assets/landmine_preview.tscn")
 
 var current_chosen_build : int = 0
 
@@ -58,6 +58,10 @@ func set_chosen_build(build_num):
 				$M/CanvasModulate.color = Color(1.0, 1.0, 1.0, 1.0)
 		2:
 			if GameTracker.scrap_amt >= 3:
+				for Build in get_tree().get_nodes_in_group("Building"):
+					Build.queue_free()
+				var M_preview = M_path.instantiate()
+				get_parent().add_child(M_preview)
 				$M/CanvasModulate.color = Color(2.454, 2.454, 2.454, 1.0)
 				$HS/CanvasModulate.color = Color(1.0, 1.0, 1.0, 1.0)
 				$NS/CanvasModulate.color = Color(1.0, 1.0, 1.0, 1.0)

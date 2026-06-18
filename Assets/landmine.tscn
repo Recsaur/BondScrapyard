@@ -1,0 +1,84 @@
+[gd_scene load_steps=15 format=3 uid="uid://d20b0unst50ta"]
+
+[ext_resource type="Script" uid="uid://p6x2261bh7h3" path="res://Assets/landmine.gd" id="1_mu5v3"]
+[ext_resource type="Texture2D" uid="uid://p0odsbj0iva8" path="res://Assets/landmine.webp" id="2_o0odp"]
+[ext_resource type="Texture2D" uid="uid://ba5xwdoxwbj8x" path="res://Assets/icon.svg" id="3_3wqer"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jvsgw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vf03o"]
+
+[sub_resource type="Curve" id="Curve_4nyng"]
+_data = [Vector2(0, 0.49438208), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3ufx4"]
+curve = SubResource("Curve_4nyng")
+
+[sub_resource type="Gradient" id="Gradient_mu5v3"]
+offsets = PackedFloat32Array(0, 0.8679245, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o0odp"]
+gradient = SubResource("Gradient_mu5v3")
+
+[sub_resource type="Curve" id="Curve_3wqer"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jvsgw"]
+curve = SubResource("Curve_3wqer")
+
+[sub_resource type="Curve" id="Curve_wmru4"]
+_data = [Vector2(0, 0.123595595), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_co25f"]
+curve = SubResource("Curve_wmru4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_41swc"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 150.0
+initial_velocity_max = 250.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_curve = SubResource("CurveTexture_co25f")
+color = Color(1.7057232, 1.705724, 1.705722, 1)
+color_initial_ramp = SubResource("GradientTexture1D_o0odp")
+alpha_curve = SubResource("CurveTexture_3ufx4")
+hue_variation_curve = SubResource("CurveTexture_jvsgw")
+
+[node name="Landmine" type="Node2D"]
+script = ExtResource("1_mu5v3")
+
+[node name="Collision" type="Area2D" parent="."]
+scale = Vector2(1.2817307, 1.2817307)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+shape = SubResource("CircleShape2D_jvsgw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.8146973e-06, -3.8146973e-06)
+scale = Vector2(0.06849729, 0.068497285)
+texture = ExtResource("2_o0odp")
+
+[node name="ExplosionRad" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionRad"]
+scale = Vector2(5.746821, 5.746821)
+shape = SubResource("CircleShape2D_vf03o")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 20
+texture = ExtResource("3_3wqer")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_41swc")
+
+[connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]
+[connection signal="body_entered" from="ExplosionRad" to="." method="_on_explosion_rad_body_entered"]
+[connection signal="body_exited" from="ExplosionRad" to="." method="_on_explosion_rad_body_exited"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://de3v2cr45c258"]
+
+[ext_resource type="Script" uid="uid://bdmerc71cwxhb" path="res://Scenes/dmg_particles.gd" id="1_ewi50"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_j1arn"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Curve" id="Curve_ewi50"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bo4oq"]
+curve = SubResource("Curve_ewi50")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_st7fg"]
+particle_flag_disable_z = true
+spread = 90.0
+initial_velocity_min = 152.94
+initial_velocity_max = 152.94
+gravity = Vector3(0, 98, 0)
+alpha_curve = SubResource("CurveTexture_bo4oq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_t5ck0"]
+font_size = 24
+font_color = Color(1.317, 1.317, 1.317, 1)
+
+[node name="DmgParticles" type="GPUParticles2D"]
+position = Vector2(101, 0)
+rotation = -1.5707964
+emitting = false
+amount = 1
+texture = SubResource("ViewportTexture_j1arn")
+lifetime = 1.5
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_st7fg")
+script = ExtResource("1_ewi50")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(402, 52)
+
+[node name="Label" type="Label" parent="SubViewport"]
+offset_left = 65.0
+offset_top = 26.0
+offset_right = 116.0
+offset_bottom = 49.0
+text = "SCORE"
+label_settings = SubResource("LabelSettings_t5ck0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3u04qmglnotl"]
+[gd_scene load_steps=8 format=3 uid="uid://b3u04qmglnotl"]
 
 [ext_resource type="Texture2D" uid="uid://bcai3srboi5hi" path="res://Assets/grass.jpg" id="1_d78u7"]
 [ext_resource type="Script" uid="uid://bk0vbutp6runh" path="res://Scenes/Maps/map.gd" id="1_yi4gh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://epygy31n2b8a" path="res://Scenes/Characters/enemy.tscn" id="3_1ayp6"]
 [ext_resource type="PackedScene" uid="uid://clhypfcop1qp8" path="res://Scenes/normal_sentry.tscn" id="4_c3nwc"]
 [ext_resource type="PackedScene" uid="uid://esj1jbtitq1n" path="res://Scenes/upgrade_bench.tscn" id="6_m07rm"]
+[ext_resource type="PackedScene" uid="uid://d20b0unst50ta" path="res://Assets/landmine.tscn" id="7_b6kcm"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_yi4gh")
@@ -37,5 +38,8 @@ autostart = true
 
 [node name="UpgradeBench" parent="." instance=ExtResource("6_m07rm")]
 position = Vector2(1006, 495)
+
+[node name="Landmine" parent="." instance=ExtResource("7_b6kcm")]
+position = Vector2(260, 393)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

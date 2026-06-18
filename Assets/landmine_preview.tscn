@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://g1copoypmryg"]
+
+[ext_resource type="Script" uid="uid://c0wc3mi8j04dm" path="res://Assets/landmine_preview.gd" id="1_j28wb"]
+[ext_resource type="Texture2D" uid="uid://p0odsbj0iva8" path="res://Assets/landmine.webp" id="2_j28wb"]
+
+[node name="Landmine_preview" type="Node2D" groups=["Building"]]
+script = ExtResource("1_j28wb")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+modulate = Color(1.124813, 1.1140252, 1.468999, 0.898)
+position = Vector2(130.00002, 0)
+scale = Vector2(0.09516715, 0.09516715)
+texture = ExtResource("2_j28wb")
+flip_h = true
