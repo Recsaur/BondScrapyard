@@ -1,17 +1,18 @@
 extends CharacterBody2D
 
 
-const SPEED = 500.0
+const SPEED = 750.0
 const JUMP_VELOCITY = -400.0
-const DASH_SPEED = 1500
+const DASH_SPEED = 1750
 var KB = Vector2.ZERO
 var KB_Length = 25.0
 var Kick_Duration = 0.1
 var Kick_Cooldown = 0.35
 var invuln = false
+var dash  = true
 var Pistol_path = preload("res://Scenes/pistol.tscn")
 var Shotgun_path = preload("res://Scenes/Shotgun.tscn")
-
+const TailKick = 350
 enum Weapons {
 	Pistol,
 	Shotgun
@@ -34,8 +35,10 @@ func _physics_process(delta: float) -> void:
 	KB = KB.move_toward(Vector2.ZERO, KB_Length)
 	velocity = direction * SPEED
 	
-	if Input.is_action_just_pressed("Dash"):
+	if Input.is_action_just_pressed("Dash") and dash:
 		Dash(direction,500)
+		dash = false
+		$Dash.start()
 		
 	if Input.is_action_just_pressed("Building"):
 		if not BHUD.visible:
@@ -75,6 +78,7 @@ func _physics_process(delta: float) -> void:
 		Kick_Collision.disabled = false
 		await get_tree().create_timer(0.1).timeout
 		Kick_Collision.disabled = true
+		Apply_Knockback(get_global_mouse_position(),TailKick)
 		$FacingPivot/Kick/Timer.start()
 	
 	#Weapon Switching but liek only left right keybindd
@@ -141,14 +145,21 @@ func Apply_Knockback(KB_Source, KB_Strength):
 
 func Dash(dir,strength):
 	KB = dir * strength
+	if dir != Vector2(0,0):
+		$DashParticles.restart()
+		$DashParticles.global_rotation = dir.angle()
+		$DashParticles.emitting = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	
+	#NORMAL ENEMY TYPEE
 	if body.is_in_group("Enemy_Normal") and not invuln:
 		print("IS IN")
 		GameTracker.player_health -= NormalEnemy_dmg
 		Apply_Knockback(body.position,750)
 		invuln = true
 		$Invuln.start()
+		GameTracker.emit_signal("Action",15.0)
 		
 	#if body.has_method("Apply_Knockback"):
 		#body.Apply_Knockback(global_position,500)
@@ -157,4 +168,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_invuln_timeout() -> void:
 	invuln = false
+	pass # Replace with function body.
+
+
+func _on_dash_timeout() -> void:
+	dash = true
 	pass # Replace with function body.

@@ -21,8 +21,11 @@ func _physics_process(_delta: float) -> void:
 
 
 func Shoot():
+	#var tween = create_tween()
 	var bullet = Bullet_path.instantiate()
 	GameTracker.Pistol_ammo -= 1
+	#tween.tween_property($Marker2D/Sprite2D2,"rotation",$Marker2D/Sprite2D2.rotation_degrees+25,0.2)
+	#tween.tween_property($Marker2D/Sprite2D2,"rotation",$Marker2D/Sprite2D2.rotation_degrees-25,0.2)
 	bullet.position = $Marker2D.global_position
 	bullet.rotation = $Marker2D.global_rotation
 	bullet.target_position = (get_global_mouse_position() - $Marker2D.global_position).normalized()

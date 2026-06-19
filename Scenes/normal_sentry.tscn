@@ -8,14 +8,14 @@
 script = ExtResource("1_64syr")
 
 [node name="Stand" type="Sprite2D" parent="."]
-position = Vector2(12.25, 9)
-scale = Vector2(0.082, 0.082)
+position = Vector2(18, 9)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_6hmed")
 flip_h = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(9.536743e-07, 12)
-scale = Vector2(0.08174596, 0.08174596)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("3_wh531")
 offset = Vector2(145, -35)
 flip_h = true
