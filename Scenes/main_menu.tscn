@@ -17,7 +17,7 @@ offset_top = 170.0
 offset_right = 965.0
 offset_bottom = 311.0
 text = " ===Bond's Scrapyard===
-Early Prototype (v.0.0.16)"
+Early Prototype (v.0.0.20)"
 label_settings = SubResource("LabelSettings_28flt")
 
 [node name="Play" type="Button" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b3u04qmglnotl"]
+[gd_scene load_steps=12 format=4 uid="uid://b3u04qmglnotl"]
 
 [ext_resource type="Texture2D" uid="uid://bcai3srboi5hi" path="res://Assets/grass.jpg" id="1_d78u7"]
 [ext_resource type="Script" uid="uid://bk0vbutp6runh" path="res://Scenes/Maps/map.gd" id="1_yi4gh"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://clhypfcop1qp8" path="res://Scenes/normal_sentry.tscn" id="4_c3nwc"]
 [ext_resource type="PackedScene" uid="uid://esj1jbtitq1n" path="res://Scenes/upgrade_bench.tscn" id="6_m07rm"]
 [ext_resource type="PackedScene" uid="uid://d20b0unst50ta" path="res://Assets/landmine.tscn" id="7_b6kcm"]
+[ext_resource type="PackedScene" uid="uid://b68ifm0tm6k1s" path="res://Scenes/bat_enemy.tscn" id="9_jwcm4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwcm4"]
 texture = ExtResource("2_03u5j")
@@ -63,5 +64,14 @@ position = Vector2(1006, 495)
 
 [node name="Landmine" parent="." instance=ExtResource("7_b6kcm")]
 position = Vector2(260, 393)
+
+[node name="Bat_Enemy" parent="." instance=ExtResource("9_jwcm4")]
+position = Vector2(923, 785)
+
+[node name="Bat_Enemy2" parent="." instance=ExtResource("9_jwcm4")]
+position = Vector2(215, 879)
+
+[node name="Bat_Enemy3" parent="." instance=ExtResource("9_jwcm4")]
+position = Vector2(1383, 404)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

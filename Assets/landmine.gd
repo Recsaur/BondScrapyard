@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 
 func _on_collision_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemy_Normal"):
+	if body.is_in_group("Enemy"):
 		ExplodeMine()
 	pass # Replace with function body.
 
@@ -33,7 +33,7 @@ func ExplodeMine():
 	
 
 func _on_explosion_rad_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemy_Normal"):  
+	if body.is_in_group("Enemy"):  
 		EnemiesInRange.append(body)
 	pass # Replace with function body.
 

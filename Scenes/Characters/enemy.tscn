@@ -13,14 +13,14 @@ viewport_path = NodePath("SubViewport")
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_ixshx"]
+[sub_resource type="CurveTexture" id="CurveTexture_b1c4r"]
 curve = SubResource("Curve_b1c4r")
 
 [sub_resource type="Curve" id="Curve_4453e"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_8cp46"]
+[sub_resource type="CurveTexture" id="CurveTexture_ixshx"]
 curve = SubResource("Curve_4453e")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_13ioh"]
@@ -28,14 +28,14 @@ particle_flag_disable_z = true
 spread = 90.0
 initial_velocity_max = 164.70999
 gravity = Vector3(0, 98, 0)
-scale_curve = SubResource("CurveTexture_8cp46")
-alpha_curve = SubResource("CurveTexture_ixshx")
+scale_curve = SubResource("CurveTexture_ixshx")
+alpha_curve = SubResource("CurveTexture_b1c4r")
 
 [sub_resource type="LabelSettings" id="LabelSettings_gwe5h"]
 font_size = 24
 font_color = Color(1.317, 1.317, 1.317, 1)
 
-[node name="Enemy_N" type="CharacterBody2D" groups=["Enemy_Normal"]]
+[node name="Enemy_N" type="CharacterBody2D" groups=["Enemy", "Enemy_Normal"]]
 collision_mask = 5
 script = ExtResource("1_b1c4r")
 

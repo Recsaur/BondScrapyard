@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("Apply_Knockback"):
-		if body.is_in_group("Enemy_Normal"):
+		if body.is_in_group("Enemy"):
 			print(body)
 			body.Apply_Knockback(GameTracker.player_pos,1750)
