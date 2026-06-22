@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bjhvllskgq0s7" path="res://Scenes/shotgun.gd" id="1_4kb2a"]
 [ext_resource type="Texture2D" uid="uid://ba5xwdoxwbj8x" path="res://Assets/icon.svg" id="1_rq3ky"]
-[ext_resource type="Texture2D" uid="uid://cmavie2elks18" path="res://Assets/shotgun.webp" id="2_fewfj"]
+[ext_resource type="Texture2D" uid="uid://bx5vl70rbsece" path="res://Assets/shotgun.png" id="2_fewfj"]
 
 [sub_resource type="Curve" id="Curve_m03g1"]
 _data = [Vector2(0, 0.49438208), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -35,8 +35,8 @@ script = ExtResource("1_4kb2a")
 position = Vector2(37, 0)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Marker2D"]
-position = Vector2(-1.9073486e-06, 0)
-scale = Vector2(0.1, 0.1)
+position = Vector2(-30.999998, 0)
+scale = Vector2(0.051, 0.051)
 texture = ExtResource("2_fewfj")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]

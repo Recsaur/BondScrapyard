@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 		#look_at(Current_target.global_position)
 
 func closest_enemy():
-	var enemies = get_tree().get_nodes_in_group("Enemy_Normal")
+	var enemies = get_tree().get_nodes_in_group("Enemy")
 	var nearest_enemy = null
 	var shortest_dist = INF
 	for enemy in enemies:

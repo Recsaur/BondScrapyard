@@ -11,3 +11,11 @@ signal Action(value : float)
 
 var Last_equipped = 0
 var FireratePistol = 0.25
+
+var Current_round = 1
+var No_enemies = false
+var Enemy_count = 0
+
+var NEnemyAmt = 2
+var BEnemyAmt = 3
+var REnemyAmt = 1
