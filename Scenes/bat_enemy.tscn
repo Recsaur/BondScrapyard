@@ -36,6 +36,7 @@ font_size = 24
 font_color = Color(1.317, 1.317, 1.317, 1)
 
 [node name="Bat_Enemy" type="CharacterBody2D" groups=["Enemy", "Enemy_Bat"]]
+scale = Vector2(1.4751569, 1.4751569)
 script = ExtResource("1_nvv5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

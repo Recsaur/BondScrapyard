@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dbtam68oobejr"]
 
 [ext_resource type="Script" uid="uid://b4fshld4hxvby" path="res://Scenes/Characters/player.gd" id="1_40svl"]
-[ext_resource type="Texture2D" uid="uid://lj5601huqlet" path="res://Assets/Corgi.jpg" id="2_utp2y"]
+[ext_resource type="Texture2D" uid="uid://bg0hxsiyxn7ir" path="res://Assets/Bond.png" id="2_utp2y"]
 [ext_resource type="Script" uid="uid://by66a3al450i4" path="res://Scenes/Characters/kick.gd" id="3_al8ar"]
 [ext_resource type="Script" uid="uid://chpo013bhbh7q" path="res://Scenes/Characters/camera_2d.gd" id="3_utp2y"]
 [ext_resource type="PackedScene" uid="uid://cdrm74j14lltn" path="res://Scenes/pistol.tscn" id="4_gy20a"]
@@ -41,10 +41,12 @@ script = ExtResource("1_40svl")
 shape = SubResource("RectangleShape2D_40svl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -17)
 scale = Vector2(0.09583474, 0.09583474)
 texture = ExtResource("2_utp2y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -12)
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0

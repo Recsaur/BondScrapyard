@@ -1,5 +1,5 @@
 extends Area2D
-
+var dmg = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,4 +15,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("Apply_Knockback"):
 		if body.is_in_group("Enemy"):
 			print(body)
+			body.Health -= dmg
+			body.DmgEffect(dmg)
 			body.Apply_Knockback(GameTracker.player_pos,1750)

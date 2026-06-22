@@ -36,6 +36,7 @@ font_size = 24
 font_color = Color(1.317, 1.317, 1.317, 1)
 
 [node name="Enemy_N" type="CharacterBody2D" groups=["Enemy", "Enemy_Normal"]]
+scale = Vector2(1.6968365, 1.6968365)
 collision_mask = 5
 script = ExtResource("1_b1c4r")
 
