@@ -65,3 +65,12 @@ offset_bottom = 48.0
 grow_horizontal = 2
 text = "Intermission"
 horizontal_alignment = 1
+
+[node name="SkipInt" type="Button" parent="."]
+offset_left = 569.0
+offset_top = 56.0
+offset_right = 711.0
+offset_bottom = 87.0
+text = "Skip Intermission"
+
+[connection signal="pressed" from="SkipInt" to="." method="_on_skip_int_pressed"]

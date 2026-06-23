@@ -17,12 +17,16 @@ texture = ExtResource("2_nkhrt")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Player"]]
 scale = Vector2(-14.783005, -14.783005)
+collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(12.111662, 12.111662)
 shape = SubResource("CircleShape2D_itaa7")
 
 [node name="Collection" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collection"]
 scale = Vector2(-10.858696, -10.858696)

@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	if GameTracker.No_enemies:
 		if $IntermissionTimer.is_stopped():
 			#print("ITS PLAYING OKAY??")
-			$IntermissionTimer.start()
+			$IntermissionTimer.start(15)
 	GameTracker.Enemy_count = enemies_count
 	
 func EnemySpawn(Type : String):
@@ -31,13 +31,17 @@ func _on_spawn_timer_timeout() -> void:
 	pass
 	
 func _on_intermission_timer_timeout() -> void:
-	for N_Enemy in range(GameTracker.NEnemyAmt):
+	for N_Enemy in range(int(GameTracker.NEnemyAmt)):
 		EnemySpawn("Normal")
-	for B_Enemy in range(GameTracker.NEnemyAmt):
+	for B_Enemy in range(int(GameTracker.BEnemyAmt)):
 		EnemySpawn("Bat")
+	IncreaseEnemyAmt()
+	GameTracker.Current_round += 1
 	#include an if statement of if rounds are more than liek 3, then allow ranged enemies
-		
+	
 func IncreaseEnemyAmt():
+	GameTracker.NEnemyAmt *= 1.5
+	GameTracker.BEnemyAmt *= 1.75
 	#Add here the changing amount of enemy when spawning, call this too for like whern last line of intermission ending
 	pass
 	

@@ -9,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(EnemiesInRange.size())
+	#print(EnemiesInRange.size())
 	pass
 
 
@@ -33,11 +33,12 @@ func ExplodeMine():
 	
 
 func _on_explosion_rad_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemy"):  
+	if body.is_in_group("Enemy") and EnemiesInRange.size() < 7:  
 		EnemiesInRange.append(body)
 	pass # Replace with function body.
 
 
 func _on_explosion_rad_body_exited(body: Node2D) -> void:
-	EnemiesInRange.erase(body)
+	if body.is_in_group("Enemy"):
+		EnemiesInRange.erase(body)
 	pass # Replace with function body.

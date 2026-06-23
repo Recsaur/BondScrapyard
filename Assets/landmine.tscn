@@ -55,6 +55,8 @@ script = ExtResource("1_mu5v3")
 
 [node name="Collision" type="Area2D" parent="."]
 scale = Vector2(1.2817307, 1.2817307)
+collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
 shape = SubResource("CircleShape2D_jvsgw")
@@ -65,6 +67,8 @@ scale = Vector2(0.06849729, 0.068497285)
 texture = ExtResource("2_o0odp")
 
 [node name="ExplosionRad" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionRad"]
 scale = Vector2(5.746821, 5.746821)

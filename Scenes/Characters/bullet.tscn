@@ -1,28 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqrkl458gwh70"]
+[gd_scene load_steps=4 format=3 uid="uid://cqrkl458gwh70"]
 
 [ext_resource type="Script" uid="uid://wtvq4djq31ax" path="res://bullet.gd" id="1_2bm0y"]
 [ext_resource type="Texture2D" uid="uid://ba5xwdoxwbj8x" path="res://Assets/icon.svg" id="2_b54av"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_quaky"]
-size = Vector2(12, 3.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bm0y"]
 size = Vector2(14, 4)
 
 [node name="Bullet" type="CharacterBody2D" groups=["PistolBullet"]]
 z_index = 2
-collision_layer = 0
-collision_mask = 4
 script = ExtResource("1_2bm0y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.10937501, 0.03125)
 texture = ExtResource("2_b54av")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_quaky")
-
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_2bm0y")

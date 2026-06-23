@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	PistolAmmo.text = str("Pistol Ammo: ", GameTracker.Pistol_ammo)
 	ShotgunAmmo.text = str("Shotgun Ammo: ", GameTracker.Shotgun_ammo)
 	CurrentWeapon.text = str("Current Weapon: ", get_parent().Current_weapon)
@@ -24,5 +24,21 @@ func _process(delta: float) -> void:
 	EnemiesLeft.text = str("Enemies Left: ", GameTracker.Enemy_count)
 	print("EY HEre")
 	print(get_parent().get_parent().get_node("IntermissionTimer").time_left)
-	Intermission.text = str("Intermission Time: ", "%0.1f" % get_parent().get_parent().get_node("IntermissionTimer").time_left)
-	pass
+	if get_parent().get_parent().get_node("IntermissionTimer").is_stopped():
+		$Intermission.hide()
+	else: 
+		Intermission.text = str("Intermission Time: ", "%0.1f" % get_parent().get_parent().get_node("IntermissionTimer").time_left)
+		$Intermission.show()
+		
+	if get_parent().get_parent().get_node("IntermissionTimer").time_left < 5:
+		$SkipInt.hide()
+	else:
+		$SkipInt.show()
+
+func _on_skip_int_pressed() -> void:
+	get_parent().get_parent().get_node("IntermissionTimer").paused = true
+	get_parent().get_parent().get_node("IntermissionTimer").wait_time = 3
+	get_parent().get_parent().get_node("IntermissionTimer").paused = false
+	get_parent().get_parent().get_node("IntermissionTimer").start()
+		
+	pass # Replace with function body.

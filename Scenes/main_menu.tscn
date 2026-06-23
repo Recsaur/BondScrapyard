@@ -17,7 +17,7 @@ offset_top = 170.0
 offset_right = 965.0
 offset_bottom = 311.0
 text = " ===Bond's Scrapyard===
-Early Prototype (v.0.0.20)"
+Early Prototype (v.0.0.22)"
 label_settings = SubResource("LabelSettings_28flt")
 
 [node name="Play" type="Button" parent="."]
@@ -48,7 +48,7 @@ Q - cycle through weapons
 Space - Dash
 
 F - Build Mode toggle
-1, 3 - Select build choice in build mode (2 currently doesnt work)"
+1,2, 3 - Select build choice in build mode"
 label_settings = SubResource("LabelSettings_48xlc")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
