@@ -22,8 +22,8 @@ func _physics_process(delta: float) -> void:
 	Scraps.text = str("Scraps: ", GameTracker.scrap_amt)
 	Rounds.text = str("Round: ", GameTracker.Current_round)
 	EnemiesLeft.text = str("Enemies Left: ", GameTracker.Enemy_count)
-	print("EY HEre")
-	print(get_parent().get_parent().get_node("IntermissionTimer").time_left)
+	#print("EY HEre")
+	#print(get_parent().get_parent().get_node("IntermissionTimer").time_left)
 	if get_parent().get_parent().get_node("IntermissionTimer").is_stopped():
 		$Intermission.hide()
 	else: 
@@ -34,6 +34,12 @@ func _physics_process(delta: float) -> void:
 		$SkipInt.hide()
 	else:
 		$SkipInt.show()
+	if GameTracker.Last_equipped == 0:
+		$WCAR.show()
+	else:
+		$WCAR.hide()
+	
+
 
 func _on_skip_int_pressed() -> void:
 	get_parent().get_parent().get_node("IntermissionTimer").paused = true

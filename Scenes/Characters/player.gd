@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 			if GameTracker.Last_equipped == 1:
 				var shotgun = Shotgun_path.instantiate()
 				add_child(shotgun)
-		print("OPEHEN")
+		#print("OPEHEN")
 	move_and_slide()
 	
 	if Build_mode:
@@ -129,7 +129,7 @@ func WeaponSwitching():
 		var shotgun = get_node("Shotgun")
 		shotgun.queue_free()
 		GameTracker.Last_equipped = 0
-		print("Pistol")
+		#print("Pistol")
 		
 	if Current_weapon == Weapons.Shotgun and not has_node("Shotgun"):
 		var Shotgun = Shotgun_path.instantiate()
@@ -137,11 +137,11 @@ func WeaponSwitching():
 		var pistol = get_node("Pistol")
 		pistol.queue_free()
 		GameTracker.Last_equipped = 1
-		print("Shotguna")
-	print("AGHAGHHA")
+		#print("Shotguna")
+	#print("AGHAGHHA")
 
 func _process(delta: float) -> void:
-	print("LIFEAOKAY?",invuln)
+	#print("LIFEAOKAY?",invuln)
 	$FacingPivot.look_at(get_global_mouse_position())
 
 func Apply_Knockback(KB_Source, KB_Strength):
@@ -159,7 +159,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 	#NORMAL ENEMY TYPEE
 	if body.is_in_group("Enemy_Normal") and not invuln:
-		print("IS IN")
+		#print("IS IN")
 		GameTracker.player_health -= NormalEnemy_dmg
 		Apply_Knockback(body.position,750)
 		invuln = true
@@ -168,7 +168,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.Apply_Knockback(position,250)
 		
 	if body.is_in_group("Enemy_Bat") and not invuln:
-		print("IS IN")
+		#print("IS IN")
 		GameTracker.player_health -= NormalEnemy_dmg
 		Apply_Knockback(body.position,750)
 		invuln = true

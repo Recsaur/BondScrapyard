@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ixnccu8tdqr4"]
+[gd_scene load_steps=5 format=3 uid="uid://ixnccu8tdqr4"]
 
 [ext_resource type="Script" uid="uid://c07byh8lw40qq" path="res://player_ui.gd" id="1_ohrjl"]
+[ext_resource type="Texture2D" uid="uid://cwotug24epewh" path="res://Assets/WeaponChoiceAR.png" id="2_46yqn"]
+[ext_resource type="Texture2D" uid="uid://v8pbpaova81m" path="res://Assets/WeaponChoiceSG.png" id="3_vi3dy"]
+[ext_resource type="Texture2D" uid="uid://bxae5pxi8f3dq" path="res://Assets/TailKick.png" id="4_jbpjp"]
 
 [node name="PlayerHUD" type="CanvasLayer"]
 script = ExtResource("1_ohrjl")
@@ -72,5 +75,29 @@ offset_top = 56.0
 offset_right = 711.0
 offset_bottom = 87.0
 text = "Skip Intermission"
+
+[node name="WCSG" type="TextureRect" parent="."]
+offset_left = 1054.0
+offset_top = 584.0
+offset_right = 1179.0
+offset_bottom = 709.0
+texture = ExtResource("3_vi3dy")
+expand_mode = 1
+
+[node name="WCAR" type="TextureRect" parent="."]
+offset_left = 1053.0
+offset_top = 584.0
+offset_right = 1178.0
+offset_bottom = 709.0
+texture = ExtResource("2_46yqn")
+expand_mode = 1
+
+[node name="TK" type="TextureRect" parent="."]
+offset_left = 1166.0
+offset_top = 597.0
+offset_right = 1266.0
+offset_bottom = 697.0
+texture = ExtResource("4_jbpjp")
+expand_mode = 1
 
 [connection signal="pressed" from="SkipInt" to="." method="_on_skip_int_pressed"]

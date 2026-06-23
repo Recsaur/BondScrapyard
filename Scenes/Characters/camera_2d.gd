@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	
 func ScreenShake(value: float):
 	ShakeStrength = value
-	print("screenshakeing?")
+	#print("screenshakeing?")
 	
 func RandOffset() -> Vector2:
 	#print(ShakeStrength* GameController.Consecutive)

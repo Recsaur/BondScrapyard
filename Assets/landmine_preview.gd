@@ -11,7 +11,7 @@ func _physics_process(_delta: float) -> void:
 	$Pivot.look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Shoot"):
 		PlaceBuild()
-		print('place once')
+		#print('place once')
 
 func PlaceBuild():
 	var Mine = Mine_path.instantiate()

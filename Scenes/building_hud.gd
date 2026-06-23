@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 
 
 func set_chosen_build(build_num):
-	print("HERES IS IT ITS IS", build_num)
+	#print("HERES IS IT ITS IS", build_num)
 	if current_chosen_build == build_num:
 		return
 	current_chosen_build = build_num

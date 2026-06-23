@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("Apply_Knockback"):
 		if body.is_in_group("Enemy"):
-			print(body)
+			#print(body)
 			body.Apply_Knockback(GameTracker.player_pos,KB)
 			body.DmgEffect(dmg)
 			body.Health -= dmg
