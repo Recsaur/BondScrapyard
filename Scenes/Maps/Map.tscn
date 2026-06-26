@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b3u04qmglnotl"]
+[gd_scene load_steps=13 format=4 uid="uid://b3u04qmglnotl"]
 
 [ext_resource type="Texture2D" uid="uid://bcai3srboi5hi" path="res://Assets/grass.jpg" id="1_d78u7"]
 [ext_resource type="Script" uid="uid://bk0vbutp6runh" path="res://Scenes/Maps/map.gd" id="1_yi4gh"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://esj1jbtitq1n" path="res://Scenes/upgrade_bench.tscn" id="6_m07rm"]
 [ext_resource type="PackedScene" uid="uid://d20b0unst50ta" path="res://Assets/landmine.tscn" id="7_b6kcm"]
 [ext_resource type="PackedScene" uid="uid://b68ifm0tm6k1s" path="res://Scenes/bat_enemy.tscn" id="9_jwcm4"]
+[ext_resource type="PackedScene" uid="uid://djwo1gcirtng8" path="res://Scenes/range_enemy.tscn" id="10_ikgfv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwcm4"]
 texture = ExtResource("2_03u5j")
@@ -110,6 +111,15 @@ position = Vector2(1578, 1000)
 
 [node name="SpawnPoint10" type="Marker2D" parent="."]
 position = Vector2(1166, 1000)
+
+[node name="Range_Enemy" parent="." instance=ExtResource("10_ikgfv")]
+position = Vector2(624, -234)
+
+[node name="Range_Enemy2" parent="." instance=ExtResource("10_ikgfv")]
+position = Vector2(1208, -347)
+
+[node name="Range_Enemy3" parent="." instance=ExtResource("10_ikgfv")]
+position = Vector2(800, -335)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="IntermissionTimer" to="." method="_on_intermission_timer_timeout"]

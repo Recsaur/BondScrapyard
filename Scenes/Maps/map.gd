@@ -1,12 +1,12 @@
 extends Node2D
 var Enemy_N_Path = preload("res://Scenes/Characters/enemy.tscn")
 var Enemy_B_Path = preload("res://Scenes/bat_enemy.tscn")
+var Enemy_R_Path = preload("res://Scenes/range_enemy.tscn")
 @onready var SpawnPoints = [$SpawnPoint, $SpawnPoint2, $SpawnPoint3, $SpawnPoint4, $SpawnPoint5, $SpawnPoint6, $SpawnPoint7, $SpawnPoint8, $SpawnPoint9, $SpawnPoint10]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
 
 func _physics_process(delta: float) -> void:
 	var enemies_count = get_tree().get_nodes_in_group("Enemy").size()
@@ -29,7 +29,11 @@ func EnemySpawn(Type : String):
 		var EnemyBat = Enemy_B_Path.instantiate()
 		EnemyBat.position = SpawnPoints.pick_random().position
 		add_child(EnemyBat)
-		
+	if Type == "Range":
+		var EnemyRange = Enemy_R_Path.instantiate()
+		EnemyRange.position = SpawnPoints.pick_random().position
+		add_child(EnemyRange)
+
 func _on_spawn_timer_timeout() -> void:
 	#EnemySpawn("Normal")
 	pass
@@ -39,6 +43,8 @@ func _on_intermission_timer_timeout() -> void:
 		EnemySpawn("Normal")
 	for B_Enemy in range(int(GameTracker.BEnemyAmt)):
 		EnemySpawn("Bat")
+	for R_Enemy in range(int(GameTracker.REnemyAmt)):
+		EnemySpawn("Range")
 	IncreaseEnemyAmt()
 	GameTracker.Current_round += 1
 	#include an if statement of if rounds are more than liek 3, then allow ranged enemies
@@ -46,6 +52,8 @@ func _on_intermission_timer_timeout() -> void:
 func IncreaseEnemyAmt():
 	if randi_range(0,3) == 1:
 		GameTracker.NEnemyAmt *= 1.5
+	if randi_range(0,1) == 1 and GameTracker.Current_round > 3:
+		GameTracker.BEnemyAmt *= 1.5
 	if randi_range(0,1) == 1 and GameTracker.Current_round > 3:
 		GameTracker.BEnemyAmt *= 1.5
 	#Add here the changing amount of enemy when spawning, call this too for like whern last line of intermission ending

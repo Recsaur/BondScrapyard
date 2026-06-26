@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://djwo1gcirtng8"]
+
+[ext_resource type="Script" uid="uid://dnau6sncpv60d" path="res://Scenes/range_enemy.gd" id="1_pd800"]
+[ext_resource type="Texture2D" uid="uid://iro8byfmo7ek" path="res://Assets/bat.webp" id="2_opf0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3who"]
+size = Vector2(48, 48)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rk4vr"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Curve" id="Curve_u0rtq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ixshx"]
+curve = SubResource("Curve_u0rtq")
+
+[sub_resource type="Curve" id="Curve_yv50a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8cp46"]
+curve = SubResource("Curve_yv50a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_02o3c"]
+particle_flag_disable_z = true
+spread = 90.0
+initial_velocity_max = 164.70999
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_8cp46")
+alpha_curve = SubResource("CurveTexture_ixshx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_5bhjl"]
+font_size = 24
+font_color = Color(1.317, 1.317, 1.317, 1)
+
+[node name="Range_Enemy" type="CharacterBody2D" groups=["Enemy", "R_enemy"]]
+script = ExtResource("1_pd800")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y3who")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.31853202, 0.39843583)
+scale = Vector2(0.0781843, 0.07818431)
+texture = ExtResource("2_opf0r")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(110, -13)
+rotation = -1.5707964
+emitting = false
+amount = 1
+texture = SubResource("ViewportTexture_rk4vr")
+one_shot = true
+speed_scale = 3.0
+process_material = SubResource("ParticleProcessMaterial_02o3c")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(402, 52)
+
+[node name="Label" type="Label" parent="SubViewport"]
+visible = false
+offset_left = 65.0
+offset_top = 26.0
+offset_right = 116.0
+offset_bottom = 49.0
+text = "SCORE"
+label_settings = SubResource("LabelSettings_5bhjl")
+horizontal_alignment = 1
+vertical_alignment = 1

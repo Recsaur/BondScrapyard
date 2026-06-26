@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://41dl7yig0kdw"]
+
+[ext_resource type="Script" uid="uid://bdppulbpgi80t" path="res://enemy_bullet.gd" id="1_54jiv"]
+[ext_resource type="Texture2D" uid="uid://ba5xwdoxwbj8x" path="res://Assets/icon.svg" id="2_b6yqb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72t2l"]
+size = Vector2(9, 1.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrehe"]
+size = Vector2(14, 4)
+
+[node name="Enemy_Bullet" type="CharacterBody2D"]
+script = ExtResource("1_54jiv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.1764706, 0.1764706, 1)
+scale = Vector2(0.10937501, 0.03125)
+texture = ExtResource("2_b6yqb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_72t2l")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_mrehe")
+
+[node name="despawn" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="despawn" to="." method="_on_despawn_timeout"]

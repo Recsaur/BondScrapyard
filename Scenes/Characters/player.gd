@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 750.0
+const SPEED = 1000.0
 const JUMP_VELOCITY = -400.0
 const DASH_SPEED = 1750
 var KB = Vector2.ZERO
