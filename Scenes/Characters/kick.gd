@@ -1,5 +1,5 @@
 extends Area2D
-var dmg = 5
+var dmg = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,3 +18,8 @@ func _on_body_entered(body: Node2D) -> void:
 			body.Health -= dmg
 			body.DmgEffect(dmg)
 			body.Apply_Knockback(GameTracker.player_pos,1750)
+			var ogspeed = body.Speed
+			body.Speed = 0
+			await get_tree().create_timer(0.25).timeout
+			if is_instance_valid(body):
+				body.Speed = ogspeed
