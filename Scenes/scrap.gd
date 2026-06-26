@@ -1,6 +1,6 @@
 extends Node2D
 
-var Move_speed = 7.5
+var Move_speed = 15
 var In_range = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,8 +18,8 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	In_range = true 
-	pass
+	if body.is_in_group("Player"):
+		In_range = true 
 
 
 func _on_collection_body_entered(body: Node2D) -> void:

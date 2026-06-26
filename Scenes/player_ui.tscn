@@ -74,7 +74,7 @@ offset_left = 569.0
 offset_top = 56.0
 offset_right = 711.0
 offset_bottom = 87.0
-text = "Skip Intermission"
+text = "Skip Intermission (R)"
 
 [node name="WCSG" type="TextureRect" parent="."]
 offset_left = 1054.0

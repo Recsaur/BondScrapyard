@@ -81,5 +81,35 @@ position = Vector2(1383, 404)
 wait_time = 15.0
 one_shot = true
 
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(-124, 295)
+
+[node name="SpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(1739, -647)
+
+[node name="SpawnPoint3" type="Marker2D" parent="."]
+position = Vector2(315, -871)
+
+[node name="SpawnPoint4" type="Marker2D" parent="."]
+position = Vector2(666, 1000)
+
+[node name="SpawnPoint5" type="Marker2D" parent="."]
+position = Vector2(1739, 305)
+
+[node name="SpawnPoint6" type="Marker2D" parent="."]
+position = Vector2(-124, -451)
+
+[node name="SpawnPoint7" type="Marker2D" parent="."]
+position = Vector2(1073, -871)
+
+[node name="SpawnPoint8" type="Marker2D" parent="."]
+position = Vector2(1749, -138)
+
+[node name="SpawnPoint9" type="Marker2D" parent="."]
+position = Vector2(1578, 1000)
+
+[node name="SpawnPoint10" type="Marker2D" parent="."]
+position = Vector2(1166, 1000)
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="IntermissionTimer" to="." method="_on_intermission_timer_timeout"]

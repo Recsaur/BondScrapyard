@@ -7,7 +7,7 @@ extends CanvasLayer
 @onready var Rounds = $Rounds
 @onready var EnemiesLeft = $EnemiesLeft
 @onready var Intermission = $Intermission
-
+var IntSkipActive = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -32,19 +32,28 @@ func _physics_process(delta: float) -> void:
 		
 	if get_parent().get_parent().get_node("IntermissionTimer").time_left < 5:
 		$SkipInt.hide()
+		IntSkipActive = false
 	else:
 		$SkipInt.show()
+		IntSkipActive = true
+		
 	if GameTracker.Last_equipped == 0:
 		$WCAR.show()
 	else:
 		$WCAR.hide()
 	
+	if Input.is_action_just_pressed("Skip") and IntSkipActive:
+		SkipInt()
+		
 
 
 func _on_skip_int_pressed() -> void:
+	SkipInt()
+	pass # Replace with function body.
+
+
+func SkipInt():
 	get_parent().get_parent().get_node("IntermissionTimer").paused = true
 	get_parent().get_parent().get_node("IntermissionTimer").wait_time = 3
 	get_parent().get_parent().get_node("IntermissionTimer").paused = false
 	get_parent().get_parent().get_node("IntermissionTimer").start()
-		
-	pass # Replace with function body.
