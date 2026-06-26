@@ -2,7 +2,7 @@ extends Node2D
 var Bullet_path = preload("res://Scenes/sentry_bullet.tscn")
 var Current_target = GameTracker.player_pos
 var Knockback = 0.0
-var Fire_rate = 2.0
+var Fire_rate = randf_range(2,2.5)
 var Can_shoot = true
 
 

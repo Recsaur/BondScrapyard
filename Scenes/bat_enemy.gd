@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var Health = 15
-var Speed = randf_range(350,450)
+var Speed = randf_range(300,350)
 var Scrap_path = preload("res://Scenes/scrap.tscn")
 var KB = Vector2.ZERO
 var KB_Length = 200.0

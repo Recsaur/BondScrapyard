@@ -34,3 +34,4 @@ func BurstShot():
 		GameStuff.add_child(bullet)
 	get_parent().Apply_Knockback($Marker2D.global_position,Knockback)
 	GameTracker.emit_signal("Action",15.0)
+	

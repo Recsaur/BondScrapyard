@@ -6,6 +6,8 @@ var Enemy_R_Path = preload("res://Scenes/range_enemy.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameTracker.connect("TookDmg", TookDmg)
+	
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
@@ -59,3 +61,8 @@ func IncreaseEnemyAmt():
 	#Add here the changing amount of enemy when spawning, call this too for like whern last line of intermission ending
 	pass
 	
+func TookDmg():
+	var screen = $Player
+	var tween = create_tween()
+	screen.modulate = Color(0.875, 0.349, 0.431, 1.0)
+	tween.tween_property(screen,"modulate",Color(1.0, 1.0, 1.0),0.125)

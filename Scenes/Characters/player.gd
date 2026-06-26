@@ -33,12 +33,14 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("left", "right", "up", "down")
 	position += KB * delta
 	KB = KB.move_toward(Vector2.ZERO, KB_Length)
-	velocity = direction * SPEED
+	#velocity = direction * SPEED
 	if get_global_mouse_position().x > position.x:
 		$Sprite2D.flip_h = false
 	else:
 		$Sprite2D.flip_h = true
 	
+	
+	velocity = velocity.lerp(direction*SPEED,15*delta)
 	
 	if Input.is_action_just_pressed("Dash") and dash:
 		Dash(direction,500)
@@ -165,6 +167,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		invuln = true
 		$Invuln.start()
 		GameTracker.emit_signal("Action",15.0)
+		GameTracker.emit_signal("TookDmg")
 		body.Apply_Knockback(position,250)
 		
 	if body.is_in_group("Enemy_Bat") and not invuln:
@@ -174,6 +177,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		invuln = true
 		$Invuln.start()
 		GameTracker.emit_signal("Action",10.0)
+		GameTracker.emit_signal("TookDmg")
 		
 	#if body.has_method("Apply_Knockback"):
 		#body.Apply_Knockback(global_position,500)

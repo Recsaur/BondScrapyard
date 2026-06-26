@@ -1,24 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://41dl7yig0kdw"]
+[gd_scene load_steps=4 format=3 uid="uid://41dl7yig0kdw"]
 
 [ext_resource type="Script" uid="uid://bdppulbpgi80t" path="res://enemy_bullet.gd" id="1_54jiv"]
 [ext_resource type="Texture2D" uid="uid://ba5xwdoxwbj8x" path="res://Assets/icon.svg" id="2_b6yqb"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_72t2l"]
-size = Vector2(9, 1.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrehe"]
 size = Vector2(14, 4)
 
 [node name="Enemy_Bullet" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_54jiv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.1764706, 0.1764706, 1)
-scale = Vector2(0.10937501, 0.03125)
+modulate = Color(1.2692354, 0, 0.020299798, 1)
+scale = Vector2(0.164, 0.047)
 texture = ExtResource("2_b6yqb")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_72t2l")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
