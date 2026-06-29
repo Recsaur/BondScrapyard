@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
 
-const SPEED = 1000.0
+var SPEED = 1000.0
 const JUMP_VELOCITY = -400.0
-const DASH_SPEED = 1750
+const DASH_SPEED = 2250
+
+@onready var PUI = $PlayerUI
+
 var KB = Vector2.ZERO
 var KB_Length = 25.0
 var Kick_Duration = 0.1
@@ -51,6 +54,7 @@ func _physics_process(delta: float) -> void:
 		if not BHUD.visible:
 			BHUD.show()
 			Build_mode = true
+			PUI.BMode()
 			$Building_UI/NS.show()
 			$Building_UI/M.show()
 			$Building_UI/HS.show()
@@ -62,6 +66,7 @@ func _physics_process(delta: float) -> void:
 				shotgun.queue_free()
 		else:
 			BHUD.hide()
+			PUI.FMode()
 			Build_mode = false
 			$Building_UI/NS.hide()
 			$Building_UI/M.hide()
@@ -109,12 +114,16 @@ func _physics_process(delta: float) -> void:
 		if GameTracker.Last_equipped == 0:
 			var pistol = Pistol_path.instantiate()
 			add_child(pistol)
+			PUI.ARPlay()
+			
 		if GameTracker.Last_equipped == 1:
 			var shotgun = Shotgun_path.instantiate()
 			add_child(shotgun)
+			PUI.SGPlay()
 		
 	if GameTracker.player_health <= 0.0:
-		queue_free()
+		hide()
+		SPEED = 0
 
 func Buildings():
 	if Input.is_action_just_pressed("1_Build"):
@@ -131,6 +140,8 @@ func WeaponSwitching():
 		var shotgun = get_node("Shotgun")
 		shotgun.queue_free()
 		GameTracker.Last_equipped = 0
+		PUI.ARPlay()
+		
 		#print("Pistol")
 		
 	if Current_weapon == Weapons.Shotgun and not has_node("Shotgun"):
@@ -139,6 +150,8 @@ func WeaponSwitching():
 		var pistol = get_node("Pistol")
 		pistol.queue_free()
 		GameTracker.Last_equipped = 1
+		PUI.SGPlay()
+		
 		#print("Shotguna")
 	#print("AGHAGHHA")
 

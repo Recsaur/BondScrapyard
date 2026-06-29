@@ -12,7 +12,7 @@
 size = Vector2(38, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al8ar"]
-size = Vector2(40, 38)
+size = Vector2(40, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gy20a"]
 size = Vector2(58.5, 77.5)
@@ -54,6 +54,7 @@ script = ExtResource("3_utp2y")
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_al8ar")
 
 [node name="FacingPivot" type="Node2D" parent="."]

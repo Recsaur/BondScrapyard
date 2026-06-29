@@ -48,16 +48,16 @@ position = Vector2(308, 203)
 scale = Vector2(1.3190932, 1.3190932)
 
 [node name="Enemy" parent="." instance=ExtResource("3_1ayp6")]
-position = Vector2(456, 336)
+position = Vector2(1524, 527)
 
 [node name="Normal_Sentry" parent="." instance=ExtResource("4_c3nwc")]
 position = Vector2(432, 47)
 
 [node name="Enemy_N" parent="." instance=ExtResource("3_1ayp6")]
-position = Vector2(107, 346)
+position = Vector2(615, -608)
 
 [node name="Enemy_N2" parent="." instance=ExtResource("3_1ayp6")]
-position = Vector2(116, 139)
+position = Vector2(30, 652)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -70,7 +70,7 @@ position = Vector2(1006, 495)
 position = Vector2(260, 393)
 
 [node name="Bat_Enemy" parent="." instance=ExtResource("9_jwcm4")]
-position = Vector2(923, 785)
+position = Vector2(1320, -578)
 
 [node name="Bat_Enemy2" parent="." instance=ExtResource("9_jwcm4")]
 position = Vector2(215, 879)
@@ -110,13 +110,13 @@ position = Vector2(1578, 1000)
 position = Vector2(1166, 1000)
 
 [node name="Range_Enemy" parent="." instance=ExtResource("10_ikgfv")]
-position = Vector2(624, -234)
+position = Vector2(157, -474)
 
 [node name="Range_Enemy2" parent="." instance=ExtResource("10_ikgfv")]
 position = Vector2(1208, -347)
 
 [node name="Range_Enemy3" parent="." instance=ExtResource("10_ikgfv")]
-position = Vector2(800, -335)
+position = Vector2(1430, 780)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="IntermissionTimer" to="." method="_on_intermission_timer_timeout"]

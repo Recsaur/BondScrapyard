@@ -70,7 +70,7 @@ func Shoot(enemy):
 	var target_location = enemy.global_position
 	Can_shoot = false
 	#GameTracker.Pistol_ammo -= 1
-	bullet.Sentry_from = self
+	bullet.Sentry_from = position
 	bullet.global_position = global_position
 	bullet.rotation = enemy.global_rotation
 	var direction = (target_location - global_position).normalized()

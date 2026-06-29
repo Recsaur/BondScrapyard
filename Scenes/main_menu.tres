@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cc0jhcthmefdi"]
+
+[ext_resource type="FontFile" uid="uid://exhk5khrmqn2" path="res://Assets/SpaceMono-Regular.ttf" id="1_fp458"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fp458"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgk1s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8wco"]
+
+[resource]
+default_font = ExtResource("1_fp458")
+default_font_size = 86
+Button/font_sizes/font_size = 86
+Button/styles/focus = SubResource("StyleBoxFlat_fp458")
+Button/styles/hover = SubResource("StyleBoxFlat_kgk1s")
+Button/styles/normal = SubResource("StyleBoxEmpty_k8wco")
+Button/styles/pressed = null

@@ -36,17 +36,20 @@ func _physics_process(delta: float) -> void:
 	else:
 		$SkipInt.show()
 		IntSkipActive = true
-		
-	if GameTracker.Last_equipped == 0:
-		$WCAR.show()
-	else:
-		$WCAR.hide()
-	
+
 	if Input.is_action_just_pressed("Skip") and IntSkipActive:
 		SkipInt()
-		
+
+func SGPlay():
+	$WeaponCurrent.play("SG")
+func ARPlay():
+	$WeaponCurrent.play("AR")
 
 
+func BMode():
+	$Mode.play("Build")
+func FMode():
+	$Mode.play("Fight")
 func _on_skip_int_pressed() -> void:
 	SkipInt()
 	pass # Replace with function body.

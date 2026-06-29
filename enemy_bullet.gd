@@ -16,7 +16,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			#print(body)
 			GameTracker.emit_signal("Action",10.0)
 			GameTracker.emit_signal("TookDmg")
-			body.Apply_Knockback(Sentry_from.position,KB)
+			body.Apply_Knockback(Sentry_from,KB)
 			#body.DmgEffect(dmg)
 			GameTracker.player_health -= dmg
 			queue_free()
