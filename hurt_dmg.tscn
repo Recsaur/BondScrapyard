@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://gn621bexti6h"]
+
+[ext_resource type="Texture2D" uid="uid://b1hj8ljex0dj4" path="res://Assets/Scrap.png" id="1_xevqk"]
+[ext_resource type="Script" uid="uid://b3uv2mdundp2n" path="res://hurt_dmg.gd" id="2_kaf8u"]
+
+[sub_resource type="Curve" id="Curve_dp1uc"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wegow"]
+curve = SubResource("Curve_dp1uc")
+
+[sub_resource type="Curve" id="Curve_xevqk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kaf8u"]
+curve = SubResource("Curve_xevqk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_781lp"]
+particle_flag_disable_z = true
+angle_min = -0.9999893
+angle_max = 1.0000107
+angle_curve = SubResource("CurveTexture_wegow")
+spread = 90.0
+initial_velocity_min = 250.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 1000, 0)
+scale_min = 0.099999994
+scale_max = 0.14999999
+scale_curve = SubResource("CurveTexture_kaf8u")
+color = Color(0, 0, 0, 0.22352941)
+
+[node name="HurtDmg" type="GPUParticles2D"]
+rotation = -1.5707964
+emitting = false
+amount = 3
+texture = ExtResource("1_xevqk")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_781lp")
+script = ExtResource("2_kaf8u")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

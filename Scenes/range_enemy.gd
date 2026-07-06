@@ -5,7 +5,7 @@ var Scrap_path = preload("res://Scenes/scrap.tscn")
 var KB = Vector2.ZERO
 var KB_Length = 200.0
 var EffectDmg_path = preload("res://Scenes/dmg_particles.tscn")
-
+var DmgToo_path = preload("res://hurt_dmg.tscn")
 var Bullet_path = preload("res://Scenes/enemy_bullet.tscn")
 var Current_target = GameTracker.player_pos
 var Knockback = 0.0
@@ -45,8 +45,11 @@ func Apply_Knockback(KB_Source, KB_Strength):
 func DmgEffect(DmgTaken):
 	#var tween = create_tween()
 	var Effect = EffectDmg_path.instantiate()
+	var otherEffect = DmgToo_path.instantiate()
 	#Effect.global_position.x += 101
 	Effect.DmgEffectItself(DmgTaken)
+	#otherEffect.position = position
+	add_child(otherEffect)
 	add_child(Effect)
 	#Effect.DmgTaken = DmgTaken
 	#tween.tween_property($Label,"position",Vector2($Label.position.x,$Label.position.y-25),0.05).set_trans(Tween.TRANS_BOUNCE)
