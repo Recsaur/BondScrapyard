@@ -16,6 +16,7 @@ var dash  = true
 var Pistol_path = preload("res://Scenes/pistol.tscn")
 var Shotgun_path = preload("res://Scenes/Shotgun.tscn")
 const TailKick = 350
+var TailWhip = AudioHandler.get_node("Tailwhip")
 enum Weapons {
 	Pistol,
 	Shotgun
@@ -88,6 +89,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Kick") and $FacingPivot/Kick/Timer.is_stopped():
 		Kick_Collision.disabled = false
+		TailWhip.pitch_scale = randf_range(0.85,1.15)
+		TailWhip.play()
 		await get_tree().create_timer(0.1).timeout
 		Kick_Collision.disabled = true
 		Apply_Knockback(get_global_mouse_position(),TailKick)

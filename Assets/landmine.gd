@@ -4,8 +4,9 @@ var EnemiesInRange = []
 var MineDmg = 100
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	var BuildSFX = AudioHandler.get_node("Building")
+	BuildSFX.pitch_scale = randf_range(0.85,1.15)
+	BuildSFX.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,6 +29,9 @@ func ExplodeMine():
 	for Enemy in EnemiesInRange:
 		Enemy.Health -= MineDmg
 		Enemy.DmgEffect(MineDmg)
+	var detSFX = AudioHandler.get_node("Kabo")
+	detSFX.pitch_scale = randf_range(0.85,1.15)
+	detSFX.play()
 	await get_tree().create_timer(0.25).timeout
 	queue_free()
 	

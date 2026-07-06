@@ -14,6 +14,10 @@ func _physics_process(_delta: float) -> void:
 		Shoot()
 		$GPUParticles2D.restart()
 		$GPUParticles2D.emitting = true
+	elif Input.is_action_pressed("Shoot") and GameTracker.Pistol_ammo <= 0 and Shootable:
+		var NoAmmo = AudioHandler.get_node("Empty")
+		NoAmmo.pitch_scale = randf_range(0.85,1.15)
+		NoAmmo.play()
 	if get_global_mouse_position().x > global_position.x:
 		$Marker2D/Sprite2D2.flip_v = false
 	else:
@@ -24,6 +28,9 @@ func Shoot():
 	#var tween = create_tween()
 	var bullet = Bullet_path.instantiate()
 	GameTracker.Pistol_ammo -= 1
+	var ARShoot = AudioHandler.get_node("ARShoot")
+	ARShoot.pitch_scale = randf_range(0.85,1.15)
+	ARShoot.play()
 	#tween.tween_property($Marker2D/Sprite2D2,"rotation",$Marker2D/Sprite2D2.rotation_degrees+25,0.2)
 	#tween.tween_property($Marker2D/Sprite2D2,"rotation",$Marker2D/Sprite2D2.rotation_degrees-25,0.2)
 	bullet.position = $Marker2D.global_position

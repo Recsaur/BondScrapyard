@@ -4,7 +4,9 @@ var Move_speed = 7.5
 var In_range = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var BuildSFX = AudioHandler.get_node("Building")
+	BuildSFX.pitch_scale = randf_range(0.85,1.15)
+	BuildSFX.play()
 
 func _physics_process(delta: float) -> void:
 	#qif GameTracker.player_pos

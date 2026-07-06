@@ -7,6 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_jvsgw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vf03o"]
+radius = 14.799995
 
 [sub_resource type="Curve" id="Curve_4nyng"]
 _data = [Vector2(0, 0.49438208), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -31,7 +32,7 @@ point_count = 3
 curve = SubResource("Curve_3wqer")
 
 [sub_resource type="Curve" id="Curve_wmru4"]
-_data = [Vector2(0, 0.123595595), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.48314613), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_co25f"]
@@ -43,7 +44,8 @@ spread = 180.0
 initial_velocity_min = 150.0
 initial_velocity_max = 250.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.099999994
+scale_min = 0.5
+scale_max = 0.75
 scale_curve = SubResource("CurveTexture_co25f")
 color = Color(1.7057232, 1.705724, 1.705722, 1)
 color_initial_ramp = SubResource("GradientTexture1D_o0odp")
@@ -54,7 +56,7 @@ hue_variation_curve = SubResource("CurveTexture_jvsgw")
 script = ExtResource("1_mu5v3")
 
 [node name="Collision" type="Area2D" parent="."]
-scale = Vector2(1.2817307, 1.2817307)
+scale = Vector2(2.089439, 2.089439)
 collision_layer = 0
 monitorable = false
 
@@ -63,7 +65,7 @@ shape = SubResource("CircleShape2D_jvsgw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-3.8146973e-06, -3.8146973e-06)
-scale = Vector2(0.06849729, 0.068497285)
+scale = Vector2(0.11166224, 0.111662224)
 texture = ExtResource("2_o0odp")
 
 [node name="ExplosionRad" type="Area2D" parent="."]

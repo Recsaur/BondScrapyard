@@ -7,7 +7,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_28flt"]
 font = ExtResource("2_1ehe0")
-font_size = 50
+font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_ce3w2"]
 font = ExtResource("2_1ehe0")
@@ -38,12 +38,11 @@ color = Color(0.38431373, 0.38431373, 0.38431373, 0)
 
 [node name="Label" type="Label" parent="PlayColor"]
 layout_mode = 0
-offset_left = 32.0
-offset_top = -209.0
-offset_right = 635.0
-offset_bottom = -68.0
-text = " ===Bond's Scrapyard===
-Early Prototype (v.0.0.22)"
+offset_left = 82.0
+offset_top = -43.0
+offset_right = 685.0
+offset_bottom = 98.0
+text = "By Recsaur (v.0.0.25)"
 label_settings = SubResource("LabelSettings_28flt")
 
 [node name="PlayText" type="Label" parent="."]
@@ -84,10 +83,10 @@ text = "Credits"
 alignment = 0
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 1322.0
-offset_top = 579.0
-offset_right = 2060.0
-offset_bottom = 909.0
+offset_left = 1332.0
+offset_top = 154.0
+offset_right = 2070.0
+offset_bottom = 484.0
 text = "Controls:
 Left Click - Shoot
 Right Click - Kick

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var target_position
-var Bullet_Speed = 1000
+var Bullet_Speed = 1250
 var dmg = 15
 var KB = 750
 # Called when the node enters the scene tree for the first time.

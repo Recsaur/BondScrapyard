@@ -19,6 +19,8 @@ config/icon="res://Assets/icon.svg"
 
 GameTracker="*res://Scripts/GameTracker.gd"
 GameStuff="*res://Scenes/game_stuff.tscn"
+AudioHandler="*res://audio_handler.tscn"
+AudioHandlerScript="*res://audio_handler.gd"
 
 [display]
 

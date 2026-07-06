@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b3u04qmglnotl"]
+[gd_scene load_steps=14 format=4 uid="uid://b3u04qmglnotl"]
 
 [ext_resource type="Texture2D" uid="uid://bcai3srboi5hi" path="res://Assets/grass.jpg" id="1_d78u7"]
 [ext_resource type="Script" uid="uid://bk0vbutp6runh" path="res://Scenes/Maps/map.gd" id="1_yi4gh"]
@@ -25,6 +25,9 @@ texture_region_size = Vector2i(250, 250)
 [sub_resource type="TileSet" id="TileSet_ikgfv"]
 tile_size = Vector2i(250, 250)
 sources/0 = SubResource("TileSetAtlasSource_jwcm4")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikgfv"]
+size = Vector2(148, 2018)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_yi4gh")
@@ -56,9 +59,6 @@ position = Vector2(432, 47)
 [node name="Enemy_N" parent="." instance=ExtResource("3_1ayp6")]
 position = Vector2(615, -608)
 
-[node name="Enemy_N2" parent="." instance=ExtResource("3_1ayp6")]
-position = Vector2(30, 652)
-
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
@@ -71,9 +71,6 @@ position = Vector2(260, 393)
 
 [node name="Bat_Enemy" parent="." instance=ExtResource("9_jwcm4")]
 position = Vector2(1320, -578)
-
-[node name="Bat_Enemy2" parent="." instance=ExtResource("9_jwcm4")]
-position = Vector2(215, 879)
 
 [node name="IntermissionTimer" type="Timer" parent="."]
 wait_time = 15.0
@@ -109,14 +106,38 @@ position = Vector2(1578, 1000)
 [node name="SpawnPoint10" type="Marker2D" parent="."]
 position = Vector2(1166, 1000)
 
-[node name="Range_Enemy" parent="." instance=ExtResource("10_ikgfv")]
-position = Vector2(157, -474)
-
 [node name="Range_Enemy2" parent="." instance=ExtResource("10_ikgfv")]
 position = Vector2(1208, -347)
 
-[node name="Range_Enemy3" parent="." instance=ExtResource("10_ikgfv")]
-position = Vector2(1430, 780)
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(883, -761)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-188, 63)
+shape = SubResource("RectangleShape2D_ikgfv")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(869, 1262)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-188, 63)
+shape = SubResource("RectangleShape2D_ikgfv")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(2012, -31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-188, 63)
+shape = SubResource("RectangleShape2D_ikgfv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-11, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-188, 63)
+shape = SubResource("RectangleShape2D_ikgfv")
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="IntermissionTimer" to="." method="_on_intermission_timer_timeout"]

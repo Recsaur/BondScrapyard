@@ -2,12 +2,15 @@ extends Node2D
 var Enemy_N_Path = preload("res://Scenes/Characters/enemy.tscn")
 var Enemy_B_Path = preload("res://Scenes/bat_enemy.tscn")
 var Enemy_R_Path = preload("res://Scenes/range_enemy.tscn")
+var NormBG = AudioHandler.get_node("NewDay")
+var Inter = AudioHandler.get_node("INTER")
+var Static = AudioHandler.get_node("Static")
+var NormBGPos = null
 @onready var SpawnPoints = [$SpawnPoint, $SpawnPoint2, $SpawnPoint3, $SpawnPoint4, $SpawnPoint5, $SpawnPoint6, $SpawnPoint7, $SpawnPoint8, $SpawnPoint9, $SpawnPoint10]
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameTracker.connect("TookDmg", TookDmg)
-	
+	NormBG.play()
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
@@ -20,6 +23,10 @@ func _physics_process(delta: float) -> void:
 		if $IntermissionTimer.is_stopped():
 			#print("ITS PLAYING OKAY??")
 			$IntermissionTimer.start(15)
+			NormBGPos = NormBG.get_playback_position()
+			NormBG.playing = false
+			Inter.playing = true
+			Static.play()
 	GameTracker.Enemy_count = enemies_count
 	
 func EnemySpawn(Type : String):
@@ -41,6 +48,9 @@ func _on_spawn_timer_timeout() -> void:
 	pass
 	
 func _on_intermission_timer_timeout() -> void:
+	Static.play()
+	Inter.playing = false
+	NormBG.play(NormBGPos)
 	for N_Enemy in range(int(GameTracker.NEnemyAmt)):
 		EnemySpawn("Normal")
 	for B_Enemy in range(int(GameTracker.BEnemyAmt)):

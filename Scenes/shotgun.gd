@@ -16,6 +16,10 @@ func _physics_process(delta: float) -> void:
 		$GPUParticles2D.restart()
 		$GPUParticles2D.emitting = true
 		BurstShot()
+	elif Input.is_action_pressed("Shoot") and GameTracker.Shotgun_ammo <= 0:
+		var NoAmmo = AudioHandler.get_node("Empty")
+		NoAmmo.pitch_scale = randf_range(0.85,1.15)
+		NoAmmo.play()
 	if get_global_mouse_position().x > global_position.x:
 		$Marker2D/Sprite2D2.flip_v = false
 	else:
@@ -25,6 +29,9 @@ func BurstShot():
 	var spread = deg_to_rad(Spread_angle) / 2.0
 	var Target_pos = (get_global_mouse_position() - $Marker2D.global_position).normalized()
 	GameTracker.Shotgun_ammo -= 1
+	var SgShoot = AudioHandler.get_node("ShotgunShoot")
+	SgShoot.pitch_scale = randf_range(0.85,1.15)
+	SgShoot.play()
 	for Buck in range(Burst_num):
 		var bullet = Bullet_path.instantiate()
 		bullet.position = $Marker2D.global_position

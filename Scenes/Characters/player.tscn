@@ -52,6 +52,7 @@ position_smoothing_speed = 10.0
 script = ExtResource("3_utp2y")
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, 17)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, -13)

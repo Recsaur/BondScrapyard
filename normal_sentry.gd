@@ -7,6 +7,9 @@ var Can_shoot = true
 
 
 func _ready() -> void:
+	var BuildSFX = AudioHandler.get_node("Building")
+	BuildSFX.pitch_scale = randf_range(0.85,1.15)
+	BuildSFX.play()
 	pass
 
 func _physics_process(delta: float) -> void:
