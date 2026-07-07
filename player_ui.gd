@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	CurrentWeapon.text = str("Current Weapon: ", get_parent().Current_weapon)
 	PlayerHealth.text = str("Health: ", GameTracker.player_health)
 	Scraps.text = str("Scraps: ", GameTracker.scrap_amt)
-	Rounds.text = str("Round: ", GameTracker.Current_round)
+	Rounds.text = str("Round ", GameTracker.Current_round)
 	EnemiesLeft.text = str("Enemies Left: ", GameTracker.Enemy_count)
 	#print("EY HEre")
 	#print(get_parent().get_parent().get_node("IntermissionTimer").time_left)

@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://du0hhw1pdpqw6"]
+[gd_scene load_steps=7 format=3 uid="uid://du0hhw1pdpqw6"]
 
 [ext_resource type="Script" uid="uid://c5ti6sku8ggsa" path="res://main_menu.gd" id="1_28flt"]
 [ext_resource type="FontFile" uid="uid://cp0shejpbmvkq" path="res://Assets/Gaegu-Bold.ttf" id="2_1ehe0"]
-[ext_resource type="Theme" uid="uid://cc0jhcthmefdi" path="res://Scenes/main_menu.tres" id="2_48xlc"]
 [ext_resource type="Texture2D" uid="uid://k7uovp352dpq" path="res://Assets/TitleScreen.png" id="2_ce3w2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_28flt"]
@@ -42,8 +41,19 @@ offset_left = 82.0
 offset_top = -43.0
 offset_right = 685.0
 offset_bottom = 98.0
-text = "By Recsaur (v.0.0.25)"
+text = "By Recsaur (v.0.0.33)"
 label_settings = SubResource("LabelSettings_28flt")
+
+[node name="CreditsText2" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 389.0
+offset_right = 587.0
+offset_bottom = 678.0
+pivot_offset = Vector2(459, 241)
+size_flags_horizontal = 0
+text = "Credits
+"
+label_settings = SubResource("LabelSettings_ce3w2")
 
 [node name="PlayText" type="Label" parent="."]
 offset_left = 70.0
@@ -58,46 +68,48 @@ label_settings = SubResource("LabelSettings_ce3w2")
 
 [node name="PlayButton" type="TextureButton" parent="."]
 offset_left = 52.0
-offset_top = 217.0
+offset_top = 246.0
 offset_right = 537.0
-offset_bottom = 417.0
+offset_bottom = 380.0
 
-[node name="CreditsButton" type="TextureButton" parent="."]
+[node name="CreditsText" type="Label" parent="."]
+visible = false
 offset_left = 51.0
 offset_top = 219.0
 offset_right = 91.0
-offset_bottom = 259.0
+offset_bottom = 242.0
 
-[node name="CreditsText" type="Label" parent="CreditsButton"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="CreditsButton" type="TextureButton" parent="."]
+offset_left = 63.0
+offset_top = 389.0
+offset_right = 518.0
+offset_bottom = 519.0
 
-[node name="Credits" type="Button" parent="."]
-offset_left = 65.0
-offset_top = 407.0
-offset_right = 347.0
-offset_bottom = 511.0
-theme = ExtResource("2_48xlc")
-text = "Credits"
-alignment = 0
+[node name="Label3" type="Label" parent="."]
+offset_left = 270.0
+offset_top = 547.0
+offset_right = 1008.0
+offset_bottom = 877.0
+scale = Vector2(0.6710088, 0.6710088)
+text = "F - Build Mode toggle
+1,2, 3 - Select build choice in build mode"
+label_settings = SubResource("LabelSettings_48xlc")
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 1332.0
-offset_top = 154.0
-offset_right = 2070.0
-offset_bottom = 484.0
+offset_left = 52.0
+offset_top = 519.0
+offset_right = 790.0
+offset_bottom = 849.0
+scale = Vector2(0.6710088, 0.6710088)
 text = "Controls:
 Left Click - Shoot
 Right Click - Kick
 WASD - Movement
 Q - cycle through weapons
-Space - Dash
-
-F - Build Mode toggle
-1,2, 3 - Select build choice in build mode"
+Space - Dash"
 label_settings = SubResource("LabelSettings_48xlc")
 
 [connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="mouse_exited" from="PlayButton" to="." method="_on_play_button_mouse_exited"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

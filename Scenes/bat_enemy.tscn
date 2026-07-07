@@ -1,10 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://b68ifm0tm6k1s"]
+[gd_scene load_steps=13 format=3 uid="uid://b68ifm0tm6k1s"]
 
 [ext_resource type="Script" uid="uid://dr8ugcjmq5vd" path="res://Scenes/bat_enemy.gd" id="1_nvv5w"]
-[ext_resource type="Texture2D" uid="uid://iro8byfmo7ek" path="res://Assets/bat.webp" id="2_nvv5w"]
+[ext_resource type="Texture2D" uid="uid://bssogyvdo25ok" path="res://Assets/bat1.png" id="2_5m8x6"]
+[ext_resource type="Texture2D" uid="uid://c2d4uikg820w2" path="res://Assets/bat2.png" id="3_c3fl8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvv5w"]
-size = Vector2(48, 48)
+size = Vector2(44.06311, 39.995743)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4l2v1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5m8x6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c3fl8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5m8x6"]
 viewport_path = NodePath("SubViewport")
@@ -36,16 +51,20 @@ font_size = 24
 font_color = Color(1.317, 1.317, 1.317, 1)
 
 [node name="Bat_Enemy" type="CharacterBody2D" groups=["Enemy", "Enemy_Bat"]]
-scale = Vector2(1.4751569, 1.4751569)
+scale = Vector2(2.522934, 2.522934)
 script = ExtResource("1_nvv5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.33894742, -3.7284174)
 shape = SubResource("RectangleShape2D_nvv5w")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.31853202, 0.39843583)
-scale = Vector2(0.0781843, 0.07818431)
-texture = ExtResource("2_nvv5w")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5.9604645e-08)
+scale = Vector2(0.042080764, 0.042080767)
+sprite_frames = SubResource("SpriteFrames_4l2v1")
+autoplay = "default"
+frame = 1
+frame_progress = 0.5902782
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 visible = false

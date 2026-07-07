@@ -33,3 +33,7 @@ func _on_play_button_mouse_exited() -> void:
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_packed(maingame)
+
+
+func _on_credits_button_pressed() -> void:
+	pass # Replace with function body.

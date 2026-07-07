@@ -2,6 +2,7 @@ extends Node2D
 
 var Move_speed = 15
 var In_range = false
+var scrapget = AudioHandler.get_node("Empty")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -24,6 +25,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_collection_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		scrapget.pitch_scale = randf_range(0.85,1.15)
+		scrapget.play()
 		GameTracker.scrap_amt += 1
 		queue_free()
 	pass # Replace with function body.

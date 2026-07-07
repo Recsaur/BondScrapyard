@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://ixnccu8tdqr4"]
+[gd_scene load_steps=18 format=3 uid="uid://ixnccu8tdqr4"]
 
 [ext_resource type="Script" uid="uid://c07byh8lw40qq" path="res://player_ui.gd" id="1_ohrjl"]
 [ext_resource type="Texture2D" uid="uid://cwotug24epewh" path="res://Assets/WeaponChoiceAR.png" id="2_46yqn"]
+[ext_resource type="FontFile" uid="uid://sxcnhfd5rntd" path="res://Assets/Gorditas-Regular.ttf" id="2_dneem"]
 [ext_resource type="Texture2D" uid="uid://v8pbpaova81m" path="res://Assets/WeaponChoiceSG.png" id="3_vi3dy"]
 [ext_resource type="Texture2D" uid="uid://bxae5pxi8f3dq" path="res://Assets/TailKick.png" id="4_jbpjp"]
 [ext_resource type="Texture2D" uid="uid://b8hbuqse63afh" path="res://Assets/WeaponChoice4.png" id="5_6jssq"]
@@ -12,6 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://dniqbmku7kwbt" path="res://Assets/ModeChoice3.png" id="10_dneem"]
 [ext_resource type="Texture2D" uid="uid://lr8o3mydpvoe" path="res://Assets/ModeChoice2.png" id="11_cfvot"]
 [ext_resource type="Texture2D" uid="uid://dhhm0l7maylkr" path="res://Assets/ModeChoice1.png" id="12_2l008"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cfvot"]
+font = ExtResource("2_dneem")
+font_size = 128
+
+[sub_resource type="LabelSettings" id="LabelSettings_2l008"]
+font = ExtResource("2_dneem")
+font_size = 64
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_byt00"]
 animations = [{
@@ -116,18 +125,21 @@ text = "Scraps"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -25.5
-offset_right = 25.5
-offset_bottom = 23.0
+offset_left = -82.0
+offset_top = -2.9999995
+offset_right = 514.2837
+offset_bottom = 154.0
 grow_horizontal = 2
+scale = Vector2(0.20936126, 0.20936126)
 pivot_offset = Vector2(25.5, 12)
 size_flags_horizontal = 4
-text = "Round"
+text = "Round 1"
+label_settings = SubResource("LabelSettings_cfvot")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="EnemiesLeft" type="Label" parent="."]
-offset_right = 40.0
+offset_right = 96.0
 offset_bottom = 23.0
 text = "EnemiesLeft"
 
@@ -135,19 +147,23 @@ text = "EnemiesLeft"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -49.0
-offset_top = 25.0
-offset_right = 49.0
-offset_bottom = 48.0
+offset_left = -73.00006
+offset_top = 34.999996
+offset_right = 587.2302
+offset_bottom = 114.0
 grow_horizontal = 2
+scale = Vector2(0.22696115, 0.22696115)
 text = "Intermission"
+label_settings = SubResource("LabelSettings_2l008")
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="SkipInt" type="Button" parent="."]
-offset_left = 569.0
-offset_top = 56.0
-offset_right = 711.0
-offset_bottom = 87.0
+offset_left = 564.0
+offset_top = 81.0
+offset_right = 731.0
+offset_bottom = 112.0
 text = "Skip Intermission (R)"
 
 [node name="WCSG" type="TextureRect" parent="."]

@@ -16,12 +16,17 @@ var Can_shoot = true
 func _physics_process(delta: float) -> void:
 	var player_pos = GameTracker.player_pos
 	var Increments = delta * Speed
+	$Sprite2D.look_at(GameTracker.player_pos)
 	#use for maybe collecting items
 	if Health <= 0:
 		var Scrap = Scrap_path.instantiate()
 		Scrap.position = position
 		GameStuff.add_child(Scrap)
+		var dead = AudioHandler.get_node("Kabo")
+		dead.pitch_scale = randf_range(0.85,1.15)
+		dead.play()
 		queue_free()
+		
 	position += KB * delta
 	KB = KB.move_toward(Vector2.ZERO, KB_Length)
 	position = Vector2(move_toward(position.x, player_pos.x, Increments),move_toward(position.y, player_pos.y, Increments))

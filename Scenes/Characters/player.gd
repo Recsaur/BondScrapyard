@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -400.0
 const DASH_SPEED = 2250
 
 @onready var PUI = $PlayerUI
-
+var dead = AudioHandler.get_node("takedmg")
 var KB = Vector2.ZERO
 var KB_Length = 25.0
 var Kick_Duration = 0.1
@@ -179,6 +179,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy_Normal") and not invuln:
 		#print("IS IN")
 		GameTracker.player_health -= NormalEnemy_dmg
+		dead.pitch_scale = randf_range(0.85,1.15)
+		dead.play()
 		Apply_Knockback(body.position,750)
 		invuln = true
 		$Invuln.start()
@@ -189,6 +191,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy_Bat") and not invuln:
 		#print("IS IN")
 		GameTracker.player_health -= NormalEnemy_dmg
+		dead.pitch_scale = randf_range(0.85,1.15)
+		dead.play()
 		Apply_Knockback(body.position,750)
 		invuln = true
 		$Invuln.start()

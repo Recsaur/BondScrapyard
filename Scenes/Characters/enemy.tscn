@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://epygy31n2b8a"]
 
 [ext_resource type="Script" uid="uid://wecdgwagbe1c" path="res://Scenes/Characters/enemy.gd" id="1_b1c4r"]
-[ext_resource type="Texture2D" uid="uid://ba5xwdoxwbj8x" path="res://Assets/icon.svg" id="2_ixshx"]
+[ext_resource type="Texture2D" uid="uid://bgf8732tv3r5h" path="res://Assets/NormalEnemy.png" id="2_b1c4r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4453e"]
 size = Vector2(48, 48)
@@ -36,16 +36,18 @@ font_size = 24
 font_color = Color(1.317, 1.317, 1.317, 1)
 
 [node name="Enemy_N" type="CharacterBody2D" groups=["Enemy", "Enemy_Normal"]]
-scale = Vector2(1.6968365, 1.6968365)
+scale = Vector2(2.9575906, 2.9575906)
 collision_mask = 5
 script = ExtResource("1_b1c4r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.8246298, 0.8246298)
 shape = SubResource("RectangleShape2D_4453e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("2_ixshx")
+position = Vector2(1.1786637, 0)
+scale = Vector2(0.051579345, 0.051579345)
+texture = ExtResource("2_b1c4r")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 visible = false

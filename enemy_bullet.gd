@@ -4,6 +4,7 @@ var Bullet_Speed = 1000
 var dmg = GameTracker.Normal_sentry_dmg
 var KB = 750
 var Sentry_from = null
+var dead = AudioHandler.get_node("takedmg")
 
 func _physics_process(delta: float) -> void:
 	velocity = target_position * Bullet_Speed 
@@ -19,6 +20,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			body.Apply_Knockback(Sentry_from,KB)
 			#body.DmgEffect(dmg)
 			GameTracker.player_health -= dmg
+			dead.pitch_scale = randf_range(0.85,1.15)
+			dead.play()
 			queue_free()
 
 

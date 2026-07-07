@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://desyq4vggm4v0"]
+[gd_scene load_steps=13 format=3 uid="uid://desyq4vggm4v0"]
 
 [ext_resource type="Script" uid="uid://dftm3ox1xxjr0" path="res://audio_handler.gd" id="1_40cug"]
 [ext_resource type="AudioStream" uid="uid://7o1a4edf1ifb" path="res://Assets/Audio/ARShootSFX.mp3" id="2_40cug"]
@@ -10,16 +10,18 @@
 [ext_resource type="AudioStream" uid="uid://b1cxkv3gd548s" path="res://Assets/Audio/Building.mp3" id="8_5p5ax"]
 [ext_resource type="AudioStream" uid="uid://dxqq6p1fpjik6" path="res://Assets/Audio/tailwhip.wav" id="9_spit3"]
 [ext_resource type="AudioStream" uid="uid://bl35faqknhowp" path="res://Assets/Audio/kabo.wav" id="10_1ft04"]
+[ext_resource type="AudioStream" uid="uid://bdoaikb7ko4ub" path="res://Assets/Audio/361268__japanyoshithegamer__8-bit-soft-impact.wav" id="11_wxoi1"]
+[ext_resource type="AudioStream" uid="uid://c0fh7t53djwwc" path="res://Assets/Audio/493916__damnsatinist__intense-punch.wav" id="12_s0dm2"]
 
 [node name="AudioHandler" type="Node2D"]
 script = ExtResource("1_40cug")
 
 [node name="ARShoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_40cug")
-max_polyphony = 5
 
 [node name="ShotgunShoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_krka2")
+max_polyphony = 10
 
 [node name="Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_354lc")
@@ -36,9 +38,20 @@ stream = ExtResource("7_3vv2t")
 
 [node name="Building" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_5p5ax")
+volume_db = 2.5
 
 [node name="Tailwhip" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_spit3")
+volume_db = 1.5
 
 [node name="Kabo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_1ft04")
+volume_db = -15.0
+
+[node name="takedmg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_wxoi1")
+
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_s0dm2")
+volume_db = 1.5
+max_polyphony = 15
