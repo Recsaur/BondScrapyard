@@ -1,7 +1,10 @@
 <h1>===WELCOME TO BOND'S SCRAPYARD!!!===</h1>
 <p>Bond's Scrapyard is a game I made where you play as a corgi dog character named Bond. In the game, you shoot robots of different types using different ways you can choose from like using your shotgun or assault rifle given to you, or making a turret army, or spamming mines everywhere to become basically untouchable by them. This game was created as a project for Hackclub Horizons :))
 
-I have a ton more ideas for the game, but because of time constraints and scope creep, I decided against adding them to the current version of the game (thinking of definitely putting them in the future tho). The game right now is like a demo, it has all the basic stuff it needs like movement, shooting, enemies, building mechanic, etc. </p>
+I have a ton more ideas for the game, but because of time constraints and scope creep, I decided against adding them to the current version of the game (thinking of definitely putting them in the future tho). The game right now is like a demo, it has all the basic stuff it needs like movement, shooting, enemies, building mechanic, etc. 
+
+Also, about AI use, none, I don't use AI. The character designs and assets, sprites and all are made by me (you can see their timelapses on lapse), and the music/audio, all of it is from freesound org and pixabay, except for the music for when rounds are happening, I made that one. The coding is by me, I would reference forums, youtube vids, and the godot docs for features and stuff if I was stuck.
+</p>
 
 <h2>===How to Play===</h2>
 <p>The game can be played <a href="https://recsaur.itch.io/bonds-scrapyard">here</a> which is hosted on itch io.
