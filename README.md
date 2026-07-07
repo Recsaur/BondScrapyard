@@ -4,7 +4,7 @@
 I have a ton more ideas for the game, but because of time constraints and scope creep, I decided against adding them to the current version of the game (thinking of definitely putting them in the future tho). The game right now is like a demo, it has all the basic stuff it needs like movement, shooting, enemies, building mechanic, etc. </p>
 
 <h2>===How to Play===</h2>
-<p>The game can be played [here](https://recsaur.itch.io/bonds-scrapyard) hosted on itch io.
+<p>The game can be played <a href="https://recsaur.itch.io/bonds-scrapyard">here</a> which hosted on itch io.
 You kill enemies and get scrap material from them, and you can use these to build turrets, mines, and ammo when you press the F key, and then their corresponding numbers. Also btw for ammo, the last weapon you had equipped is the ammo that will be created when you craft it.
 Controls:
   Left Click - Shoot
