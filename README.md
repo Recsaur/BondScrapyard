@@ -1,152 +1,34 @@
-<a id="readme-top"></a>
+<h1>===WELCOME TO BOND'S SCRAPYARD!!!===</h1>
+<p>Bond's Scrapyard is a game I made where you play as a corgi dog character named Bond. In the game, you shoot robots of different types using different ways you can choose from like using your shotgun or assault rifle given to you, or making a turret army, or spamming mines everywhere to become basically untouchable by them. This game was created as a project for Hackclub Horizons :))
 
-<!-- SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+I have a ton more ideas for the game, but because of time constraints and scope creep, I decided against adding them to the current version of the game (thinking of definitely putting them in the future tho). The game right now is like a demo, it has all the basic stuff it needs like movement, shooting, enemies, building mechanic, etc. 
 
-<!-- HEADER -->
-<br />
-<div align="center">
-    <a href="https://github.com/BudzioT/Godot_Super-Wakatime">
-        <img src="https://cloud-bo1ln2br1-hack-club-bot.vercel.app/0godotwaka22.png"  alt="Godot Wakatime"/>
-    </a>
-    <h3 align="center"> Godot Super Wakatime </h3>
-    <p align="center">
-        Tool to measure time spent in loved by many people game engine - Godot
-        <br />
-        Officially approved to use in events created by Hack Club
-        <br />
-        <br />
-        <a href="https://godotengine.org/asset-library/asset/3484">Get from Asset Lib</a>
-        ·
-        <a href="https://youtu.be/rqAc-YdVXyM">View Demo</a>
-        ·
-        <a href="https://github.com/BudzioT/Godot_Super-Wakatime/issues/new">Report Bug / Request Feature</a>
-    </p>
-</div>
+Also, about AI use, none, I don't use AI. The character designs and assets, sprites and all are made by me (you can see their timelapses on lapse), and the music/audio, all of it is from freesound org and pixabay, except for the music for when rounds are happening, I made that one. The coding is by me, I would reference forums, youtube vids, and the godot docs for features and stuff if I was stuck.
+</p>
 
-<!-- CONTENTS -->
-<details>
-    <summary>Table of Contents</summary>
-    <ol>
-        <li>
-            <a href="#about">About The Project</a>
-            <ul>
-                <li><a href="#built-with">Built Using</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#getting-started">Getting Started</a>
-            <ul>
-                <li><a href="#installation">Installation</a></li>
-            </ul>
-        </li>
-        <li><a href="#usage">Usage</a></li>
-        <li><a href="#license">License</a></li>
-    </ol>
-</details>
+<h2>===How to Play===</h2>
+<p>The game can be played <a href="https://recsaur.itch.io/bonds-scrapyard">here</a> which is hosted on itch io.
+You kill enemies and get scrap material from them, and you can use these to build turrets, mines, and ammo when you press the F key, and then their corresponding numbers. Also btw for ammo, the last weapon you had equipped is the ammo that will be created when you craft it.
+Controls:
+  Left Click - Shoot
+  Right Click - Kick
+  WASD - Movement
+  Q - cycle through weapons
+  Space - Dash
+  F - Build Mode toggle
+  1,2, 3 - Select build choice in build mode</p>
+
+<h2>===Gameplay Screenshots===</h2>
+<img width="1438" height="810" alt="image" src="https://github.com/user-attachments/assets/fd6d5829-f1c9-4222-ae0a-dd3822955443" />
+<img width="1436" height="813" alt="image" src="https://github.com/user-attachments/assets/836fd2f0-526e-4c60-b172-ef150d22c90c" />
 
 
-<!-- ABOUT -->
-## About The Project
-<br />
+<h2>===Inspiration===</h2>
+<p>The game is inspired by a mixed bag of different games I've played in the past. It's kinda in the bullet hell genre, and that aspect of it is inspired by a game I play on my phone whenever Im bored called Soul Knight, the game is really fun and addicting, just going through dungeons and stuff fighting enemies and using weapons. The game is also kinda inspired by Team Fortress 2, thats where the building part is mostly from, because of one of the classes in the game, engineer, who builds sentries that shoot enemies. Another game I'd like to include is Defend The Train, a game from roblox, and like if you play a bit of it and compare it to this, you might not really see it, which I understand, the thing is, this game originally was suppose to be about defending like a central tower against rounds of enemies, but that idea got shifted, I'll probably add it back in the future, because that's what I actually kinda want the game to be like. Speaking of scrapped Ideas, next section is....</p>
 
-[![Product Screenshot][product-screenshot]](https://waka.hackclub.com)
-
-This tool can successfully measure time spent building your games or apps in Godot.
-<br />
-Here's why:
-* It differentiates between switching a scene and script
-* It counts key presses as coding and mouse clicks as building scene
-* Changing scene structure results in a heartbeat sent
-* It correctly detects OS, machine name, language, editor, files
-* It can detect your cursor line and position
-* Time is split between: Building, Coding, Testing
-* In the future it will also detect testing your projects
-
-It works on both Linux and Windows, it wasn't tested on macOS yet
-<br />
-You can also see your time spent in the editor itself:
-[![Time in editor][time-screenshot]]
-
-<p align="right">(<a href="#readme-top">top</a>)</p>
-
-
-### Built Using
-I used the Ouch! CLI tool for decompression of files <br />
-This project was built using one simple, yet powerful language.<br />
-It required a lot of workarounds, but it was a pleasure to use it
-* [![GDScript][Godot]][Godot-url]
-* [![Ouch!][Ouch-shield]][Ouch-url]
-
-<p align="right">(<a href="#readme-top">top</a>)</p>
-
-<!-- GETTING STARTED -->
-## Getting Started
-How to install and use this software? It's easy!
-
-### Installation
-You can either download it from the [Godot Asset Library](https://godotengine.org/asset-library/asset/3484).
-<br />Or you can manually install it, here's how to do it!
-1. Clone the repository
-    ```sh
-    git clone https://github.com/BudzioT/Godot_Super-Wakatime.git
-    ```
-2. Go into your project
-3. Insert the entire `./addons` folder into your project `res://` directory
-
-<p align="right">(<a href="#readme-top">top</a>)</p>
-
-<!-- USAGE -->
-## Usage
-Don't know how to use this plugin? Here are the steps:
-1. Turn on the plugin in your plugins. In your `Project -> Project Settings -> Plugins -> `Click the `Enable` checkbox near this plugin
-2. If prompted for API key, provide it from Wakatime website
-3. if there is an issue with it, please manually create `~/.wakatime.cfg` file with these contents:
-    ```sh
-    [settings]
-    api_key=xxxx
-    ```
-    Where xxxx is your api key
-<br /><br />
-If you are coming from Hack Club use this:
-    ```sh
-    [settings]
-    api_url = https://hackatime.hackclub.com/api/hackatime/v1
-    api_key=xxxx
-    ```
-4. Wakatime CLI should have been installed automatically along with Ouch! Decompression library
-5. Work on your project! You should see your results on either Wakatime or Hackatime!
-6. You can also see your time at the bottom panel
-
-<p align="right">(<a href="#readme-top">top</a>)</p>
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- URLS -->
-[contributors-shield]: https://img.shields.io/github/contributors/budziot/Godot_Super-Wakatime?style=for-the-badge
-[contributors-url]: https://github.com/BudzioT/Godot_Super-Wakatime/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/budziot/Godot_Super-Wakatime?style=for-the-badge
-[forks-url]: https://github.com/BudzioT/Godot_Super-Wakatime/forks
-[stars-shield]: https://img.shields.io/github/stars/budziot/Godot_Super-Wakatime?style=for-the-badge
-[stars-url]: https://github.com/BudzioT/Godot_Super-Wakatime/stargazers
-[issues-shield]: https://img.shields.io/github/issues/budziot/Godot_Super-Wakatime?style=for-the-badge
-[issues-url]: https://github.com/BudzioT/Godot_Super-Wakatime/issues
-[license-shield]: https://img.shields.io/github/license/budziot/Godot_Super-Wakatime?style=for-the-badge
-[license-url]: https://github.com/BudzioT/Godot_Super-Wakatime/blob/master/addons/godot_super-wakatime/LICENSE
-[product-screenshot]: https://cloud-j4wibbzz7-hack-club-bot.vercel.app/0image.png
-[product-logo]: https://cloud-j4wibbzz7-hack-club-bot.vercel.app/2godotwaka2.png
-[Godot]: https://img.shields.io/badge/Godot%20Engine-478CBF?logo=godotengine&logoColor=fff&style=flat
-[Godot-url]: https://godotengine.org/
-[Ouch-shield]: https://img.shields.io/badge/Ouch!-tool-blue?label=Ouch!
-[Ouch-url]: https://github.com/ouch-org/ouch
-[time-screenshot]: https://cloud-l88kldf50-hack-club-bot.vercel.app/0image.png
+<h2>===Ideas for the Game===</h2>
+<p>A spinning machine like in PvZGW/2 where it basically does multipliers to enemies, like increases their damage or speed or health.
+Was gonna add like an ultimate meter that you build up, and allowed you to use like a minigun at full.
+Thinking of adding an upgrade bench where you spend scrap to upgrade your guns and their stats like firerate and damage.
+A runway shop, there was gonna be a runway at the north of the map, where a squirrel (name to be thought of) lands and opens a store where you could buy weapons of blueprints for buildings.
+The central tower to defend, like I said in the last section.</p>
