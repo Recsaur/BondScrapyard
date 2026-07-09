@@ -41,10 +41,11 @@ offset_left = 82.0
 offset_top = -43.0
 offset_right = 685.0
 offset_bottom = 98.0
-text = "By Recsaur (v.0.0.33)"
+text = "By Recsaur (v.0.1.1)"
 label_settings = SubResource("LabelSettings_28flt")
 
 [node name="CreditsText2" type="Label" parent="."]
+visible = false
 offset_left = 64.0
 offset_top = 389.0
 offset_right = 587.0
@@ -87,9 +88,9 @@ offset_bottom = 519.0
 
 [node name="Label3" type="Label" parent="."]
 offset_left = 270.0
-offset_top = 547.0
+offset_top = 437.0
 offset_right = 1008.0
-offset_bottom = 877.0
+offset_bottom = 767.0
 scale = Vector2(0.6710088, 0.6710088)
 text = "F - Build Mode toggle
 1,2, 3 - Select build choice in build mode"
@@ -97,9 +98,9 @@ label_settings = SubResource("LabelSettings_48xlc")
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 52.0
-offset_top = 519.0
+offset_top = 409.0
 offset_right = 790.0
-offset_bottom = 849.0
+offset_bottom = 739.0
 scale = Vector2(0.6710088, 0.6710088)
 text = "Controls:
 Left Click - Shoot

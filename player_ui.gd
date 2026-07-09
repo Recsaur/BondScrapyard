@@ -15,6 +15,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if GameTracker.player_health <= 0:
+		$ded.show()
 	PistolAmmo.text = str("Pistol Ammo: ", GameTracker.Pistol_ammo)
 	ShotgunAmmo.text = str("Shotgun Ammo: ", GameTracker.Shotgun_ammo)
 	CurrentWeapon.text = str("Current Weapon: ", get_parent().Current_weapon)

@@ -3,6 +3,7 @@ extends Node2D
 var Bullet_path = preload("res://Scenes/Characters/bullet.tscn")
 var Knockback = 0.0
 var Shootable = true
+@onready var Ar_point = $Marker2D/Sprite2D2
 
 func _ready() -> void:
 	look_at(get_global_mouse_position())
@@ -19,9 +20,9 @@ func _physics_process(_delta: float) -> void:
 		NoAmmo.pitch_scale = randf_range(0.85,1.15)
 		NoAmmo.play()
 	if get_global_mouse_position().x > global_position.x:
-		$Marker2D/Sprite2D2.flip_v = false
-	else:
-		$Marker2D/Sprite2D2.flip_v = true
+		Ar_point.flip_v = false
+	elif get_global_mouse_position().x < global_position.x:
+		Ar_point.flip_v = true
 
 
 func Shoot():

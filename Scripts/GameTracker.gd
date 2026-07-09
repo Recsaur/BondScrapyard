@@ -17,5 +17,5 @@ var No_enemies = false
 var Enemy_count = 0
 
 var NEnemyAmt = 2
-var BEnemyAmt = 3
+var BEnemyAmt = 1
 var REnemyAmt = 1

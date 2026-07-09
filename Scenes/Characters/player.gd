@@ -30,6 +30,7 @@ var Build_mode = false
 @onready var BHUD = $Building_UI
 
 #Enemy damgese
+var BatEnemy_dmg = 10
 var NormalEnemy_dmg = 15
 
 func _physics_process(delta: float) -> void:
@@ -190,7 +191,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 	if body.is_in_group("Enemy_Bat") and not invuln:
 		#print("IS IN")
-		GameTracker.player_health -= NormalEnemy_dmg
+		GameTracker.player_health -= BatEnemy_dmg
 		dead.pitch_scale = randf_range(0.85,1.15)
 		dead.play()
 		Apply_Knockback(body.position,750)

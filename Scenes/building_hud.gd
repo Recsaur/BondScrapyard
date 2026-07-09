@@ -18,6 +18,11 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
+	if GameTracker.Last_equipped == 0:
+		$HS/Homing_sentry.text = str("3 - Rifle Bullets (x1 Scrap = 5x Bullets)")
+	elif GameTracker.Last_equipped == 1:
+		$HS/Homing_sentry.text = str("3 - Shotgun Bullets (x1 Scrap = 1x Bullet)")
+	
 	if GameTracker.scrap_amt >= 3:
 		if current_chosen_build != 1:
 			$NS/CanvasModulate.color = Color(1.0, 1.0, 1.0)

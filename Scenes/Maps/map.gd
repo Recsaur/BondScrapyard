@@ -56,18 +56,19 @@ func _on_intermission_timer_timeout() -> void:
 	for B_Enemy in range(int(GameTracker.BEnemyAmt)):
 		EnemySpawn("Bat")
 	for R_Enemy in range(int(GameTracker.REnemyAmt)):
-		EnemySpawn("Range")
+		if GameTracker.Current_round >= 5:
+			EnemySpawn("Range")
 	IncreaseEnemyAmt()
 	GameTracker.Current_round += 1
 	#include an if statement of if rounds are more than liek 3, then allow ranged enemies
 	
 func IncreaseEnemyAmt():
-	if randi_range(0,3) == 1:
-		GameTracker.NEnemyAmt *= 1.5
-	if randi_range(0,1) == 1 and GameTracker.Current_round > 3:
-		GameTracker.BEnemyAmt *= 1.5
-	if randi_range(0,1) == 1 and GameTracker.Current_round > 3:
-		GameTracker.BEnemyAmt *= 1.5
+	if randi_range(0,3) == 1 and not GameTracker.NEnemyAmt > 15:
+		GameTracker.NEnemyAmt += 1.5
+	if randi_range(0,1) == 1 and GameTracker.Current_round > 3 and not GameTracker.BEnemyAmt > 5:
+		GameTracker.BEnemyAmt += 1
+	if randi_range(0,1) == 1 and GameTracker.Current_round >= 5 and not GameTracker.REnemyAmt > 5:
+		GameTracker.BEnemyAmt += 1
 	#Add here the changing amount of enemy when spawning, call this too for like whern last line of intermission ending
 	pass
 	
